@@ -33,3 +33,11 @@ $headings-font-family: $font-serif;
 
 // DM Serif Display solo tiene peso 400; con el 500 de Bootstrap el navegador simularía una negrita.
 $headings-font-weight: 400;
+
+// Navbar: color pleno en lugar del 65 % de opacidad por defecto, que bajaba el contraste del menú.
+$navbar-light-color: $color-text;
+$navbar-light-hover-color: $color-accent;
+$navbar-light-active-color: $color-accent;
+$navbar-light-icon-color: $color-text;
+$navbar-brand-font-size: 1.5rem;
+$nav-link-font-weight: 700;

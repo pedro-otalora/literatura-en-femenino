@@ -1,1 +1,3 @@
-// Pendiente
+// Punto de entrada de Components: reenvía los bloques BEM para cargarlos con un solo @use.
+@forward "site-header";
+@forward "site-footer";

@@ -1,1 +1,10 @@
-// Pendiente
+@use "../tools" as *;
+
+.site-header {
+  border-block-end: rem(3px) solid $color-accent;
+
+  // Bootstrap no tiene variable para la fuente del logo, así que se aplica con una clase propia
+  &__logo {
+    font-family: $font-serif;
+  }
+}

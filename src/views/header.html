@@ -1,1 +1,23 @@
-<header class="site-header"></header>
+<header class="site-header">
+  <nav class="navbar navbar-expand-md" aria-label="Principal">
+    <div class="container">
+      <a class="navbar-brand site-header__logo" href="./index.html">Páginas al Sol</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link {{ page === 'ponentes' ? 'active' : '' }}" aria-current="{{ page === 'ponentes' ? 'page' : 'false' }}" href="./ponentes.html">Ponentes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ page === 'articulo' ? 'active' : '' }}" aria-current="{{ page === 'articulo' ? 'page' : 'false' }}" href="./articulo.html">Las jornadas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ page === 'programa' ? 'active' : '' }}" aria-current="{{ page === 'programa' ? 'page' : 'false' }}" href="./programa.html">Programa</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
