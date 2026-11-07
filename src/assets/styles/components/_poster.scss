@@ -1,0 +1,168 @@
+@use "../tools" as *;
+
+// Versión alternativa sin Grid: bloques apilados y centrados, legible en cualquier navegador.
+.poster {
+  padding-block: rem(32px);
+  text-align: center;
+
+  // El sol es solo decorativo y necesita Grid para colocarse, así que no se muestra sin él
+  &__sun {
+    display: none;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-block-end: rem(24px);
+  }
+
+  &__title {
+    font-size: clamp(rem(56px), 14vw, rem(144px));
+    line-height: 0.9;
+  }
+
+  &__title-line {
+    display: block;
+    color: $color-accent;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  &__date {
+    font-family: $font-serif;
+    font-size: rem(28px);
+    color: $color-accent;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(16px);
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// Versión póster: solo en navegadores que soportan Grid (mejora progresiva).
+@supports (display: grid) {
+  .poster {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: rem(16px);
+    text-align: start;
+
+    @include mq(md) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: rem(24px);
+    }
+
+    &__sun {
+      display: block;
+      grid-row: 1;
+      grid-column: 1 / 4;
+      align-self: start;
+      aspect-ratio: 1;
+      background-color: $color-highlight;
+      border-radius: 50%;
+
+      // Más pequeño y metido por detrás de la foto, para que se solapen
+      @include mq(md) {
+        grid-row: 1 / 3;
+        grid-column: 2 / 6;
+      }
+    }
+
+    &__image {
+      // Por encima del sol
+      z-index: 1;
+      grid-row: 1;
+      grid-column: 2 / -1;
+      align-self: end;
+      aspect-ratio: 3 / 2;
+      margin: 0;
+      object-fit: cover;
+
+      @include mq(md) {
+        grid-row: 1 / 4;
+        grid-column: 4 / -1;
+      }
+    }
+
+    &__title {
+      // Por encima de la foto, para que el recorte arena la tape
+      z-index: 2;
+      grid-row: 2;
+      grid-column: 1 / -1;
+      margin: 0;
+
+      @include mq(md) {
+        grid-row: 3 / 5;
+        grid-column: 1 / 9;
+        place-self: end start;
+
+        // El fondo solo ocupa lo que mide el texto, no toda el área de la retícula
+        padding: rem(16px) rem(24px) 0 0;
+        background-color: $color-bg;
+      }
+    }
+
+    &__subtitle,
+    &__date,
+    &__text,
+    &__links {
+      grid-column: 1 / -1;
+      margin: 0;
+    }
+
+    // En la versión Grid todo se alinea a la izquierda, también los botones
+    &__links {
+      justify-content: flex-start;
+    }
+
+    @include mq(md) {
+      &__subtitle,
+      &__date,
+      &__text {
+        grid-column: 1 / 7;
+      }
+    }
+
+    // Desde lg hay espacio a la derecha del título: el bloque de información
+    // sube a esas columnas y el póster cabe en la pantalla
+    @include mq(lg) {
+      &__subtitle,
+      &__date,
+      &__text,
+      &__links {
+        grid-column: 9 / -1;
+      }
+
+      &__subtitle {
+        grid-row: 4;
+        align-self: end;
+      }
+
+      &__date {
+        grid-row: 5;
+      }
+
+      &__text {
+        grid-row: 6;
+      }
+
+      &__links {
+        grid-row: 7;
+      }
+
+      &__title {
+        grid-row: 3 / 8;
+      }
+    }
+  }
+}
