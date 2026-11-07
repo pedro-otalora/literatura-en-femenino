@@ -1,7 +1,5 @@
-/**
- * Import any npm dependencies in this file
- * see commented examples below
- */
+// Capa Generic: código de terceros. Bootstrap incluye Reboot, que hace de reset.
 
-// @import "some-node-module";
-// @import "@some-company/some-node-module";
+// Las variables van antes de Bootstrap para que sus !default tomen nuestros valores.
+@import "variables";
+@import "bootstrap/scss/bootstrap";

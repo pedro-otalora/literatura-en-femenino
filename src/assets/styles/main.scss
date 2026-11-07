@@ -1,20 +1,20 @@
-/**
- * Use this file to import partials.
- * Do not include SCSS code in this file.
- */
+// Punto de entrada: solo carga parciales, en orden ITCSS de menor a mayor especificidad.
+// Settings y Tools no se cargan aquí porque no generan CSS: los usan los parciales.
 
-/**
- * Import dependencies
- */
+// Generic: Bootstrap (incluye Reboot)
 @use "dependencies";
 
-/**
- * Import layouts
- * It's a best practice to use a different partial for each page
- */
+// Elements
+@use "elements";
 
+// Objects: carpeta layouts/ del boilerplate, un parcial por página
 @use "layouts/home";
+@use "layouts/ponentes";
+@use "layouts/articulo";
+@use "layouts/programa";
 
-/**
- * Do NOT include anything else in this file!
- */
+// Components: bloques BEM
+@use "components";
+
+// Utilities
+@use "utilities";
