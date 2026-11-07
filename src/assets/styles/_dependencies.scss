@@ -1,5 +1,10 @@
 // Capa Generic: código de terceros. Bootstrap incluye Reboot, que hace de reset.
 
+// Solo los pesos que se usan, para no cargar ficheros de fuente innecesarios.
+@import "npm:@fontsource/dm-serif-display/400.css";
+@import "npm:@fontsource/dm-sans/400.css";
+@import "npm:@fontsource/dm-sans/700.css";
+
 // Las variables van antes de Bootstrap para que sus !default tomen nuestros valores.
 @import "variables";
 @import "bootstrap/scss/bootstrap";

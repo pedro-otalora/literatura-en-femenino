@@ -1,1 +1,35 @@
 // Variables globales (capa Settings).
+
+// Paleta base: valores de color. Solo aquí se permiten hexadecimales (override de Stylelint).
+$blue-deep: #1f3a5f;
+$terracotta: #b04a22;
+$ochre: #e9b44c;
+$sand: #fbf6ee;
+$white: #fff;
+
+// Paleta por función: los componentes usan estos nombres, así el tema se cambia en un solo bloque.
+$color-text: $blue-deep;
+$color-bg: $sand;
+$color-accent: $terracotta;
+$color-highlight: $ochre;
+
+// Tipografías
+$font-serif: "DM Serif Display", "Georgia", serif;
+$font-sans: "DM Sans", system-ui, sans-serif;
+
+// Puntos de corte: los mismos valores que Bootstrap, para que mq() y sus utilidades coincidan.
+$breakpoints: (
+  md: 768px,
+  lg: 992px,
+);
+
+// Personalización de Bootstrap: sobrescriben sus valores !default.
+$primary: $color-accent;
+$secondary: $color-text;
+$body-bg: $color-bg;
+$body-color: $color-text;
+$font-family-base: $font-sans;
+$headings-font-family: $font-serif;
+
+// DM Serif Display solo tiene peso 400; con el 500 de Bootstrap el navegador simularía una negrita.
+$headings-font-weight: 400;
