@@ -91,6 +91,12 @@
       @include mq(md) {
         grid-row: 1 / 4;
         grid-column: 4 / -1;
+        aspect-ratio: 16 / 9;
+      }
+
+      // En escritorio, más apaisada para que el póster quepa en la pantalla
+      @include mq(lg) {
+        aspect-ratio: 2 / 1;
       }
     }
 
@@ -160,8 +166,10 @@
         grid-row: 7;
       }
 
+      // El título arranca arriba de su área para volver a solaparse con la parte baja de la foto
       &__title {
         grid-row: 3 / 8;
+        align-self: start;
       }
     }
   }

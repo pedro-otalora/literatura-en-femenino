@@ -1,0 +1,59 @@
+@use "../tools" as *;
+
+.speaker-card {
+  height: 100%;
+  text-align: center;
+
+  &__media {
+    position: relative;
+    width: min(70%, rem(220px));
+    aspect-ratio: 4 / 5;
+    margin: rem(32px) auto 0;
+
+    // El sol de la portada, repetido detrás de cada retrato para dar unidad al sitio
+    &::before {
+      position: absolute;
+      inset-block-end: -6%;
+      inset-inline-end: -14%;
+      width: 60%;
+      aspect-ratio: 1;
+      content: "";
+      background-color: $color-highlight;
+      border-radius: 50%;
+    }
+  }
+
+  // Forma de arco: radio máximo arriba y esquinas rectas abajo
+  &__photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 999px 999px 0 0;
+  }
+
+  &__name {
+    margin-block-end: rem(4px);
+    font-size: rem(28px);
+  }
+
+  &__role {
+    margin-block-end: rem(12px);
+    font-weight: 700;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  // Tarjeta ancha (una columna en tablet vertical): retrato a la izquierda y texto a la derecha
+  @container (min-width: 30rem) {
+    flex-direction: row;
+    align-items: center;
+    text-align: start;
+
+    &__media {
+      flex: 0 0 35%;
+      margin: rem(24px);
+    }
+  }
+}

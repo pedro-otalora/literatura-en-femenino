@@ -1,1 +1,31 @@
-// Pendiente
+@use "../tools" as *;
+
+$speaker-gap: rem(32px);
+
+// Retícula con flex (el enunciado no permite .row ni .col-*)
+.speaker-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $speaker-gap;
+
+  // Si se añaden ponentes y la última fila queda incompleta, se centra
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 rem(64px);
+  list-style: none;
+
+  &__item {
+    flex: 1 1 100%;
+
+    // Cada tarjeta es un contenedor: su diseño depende de su ancho, no del de la pantalla
+    container-type: inline-size;
+
+    @include mq(md) {
+      flex: 0 1 calc((100% - #{$speaker-gap}) / 2);
+    }
+
+    @include mq(lg) {
+      flex: 0 1 calc((100% - 2 * #{$speaker-gap}) / 3);
+    }
+  }
+}

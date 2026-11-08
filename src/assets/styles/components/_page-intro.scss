@@ -1,0 +1,16 @@
+@use "../tools" as *;
+
+.page-intro {
+  padding-block: rem(48px) rem(32px);
+  text-align: center;
+
+  &__title {
+    font-size: clamp(rem(40px), 8vw, rem(72px));
+  }
+
+  &__text {
+    max-width: 40rem;
+    margin-inline: auto;
+    font-size: rem(20px);
+  }
+}
