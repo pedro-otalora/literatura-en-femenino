@@ -1,0 +1,179 @@
+@use "../tools" as *;
+
+.article {
+  padding-block-end: rem(64px);
+
+  // Cabecera: foto y texto apilados en la misma celda de la retícula
+  &__hero {
+    display: grid;
+    min-height: rem(360px);
+    margin-block-end: rem(48px);
+  }
+
+  &__hero-image,
+  &__hero-content {
+    grid-area: 1 / 1;
+  }
+
+  &__hero-image {
+    width: 100%;
+    height: 100%;
+    max-height: rem(560px);
+    object-fit: cover;
+  }
+
+  &__hero-content {
+    z-index: 1;
+    align-self: end;
+    padding-block: rem(48px);
+  }
+
+  // :has(): solo si la cabecera tiene foto se oscurece la imagen y el texto pasa a claro.
+  // Sin foto, la cabecera queda con el fondo arena y el texto oscuro.
+  &__hero:has(&__hero-image) {
+    color: $color-bg;
+
+    &::after {
+      grid-area: 1 / 1;
+      content: "";
+      background-image: linear-gradient(to top, $color-text 15%, color-mix(in srgb, $color-text 30%, transparent));
+    }
+  }
+
+  &__kicker {
+    margin-block-end: rem(8px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  &__title {
+    max-width: 18ch;
+    font-size: clamp(rem(40px), 7vw, rem(80px));
+    line-height: 1;
+  }
+
+  &__body {
+    max-width: rem(760px);
+    padding-inline: rem(16px);
+    margin-inline: auto;
+
+    // Contenedor: la introducción cambia según el ancho de la columna de texto
+    container-type: inline-size;
+  }
+
+  // Introducción: cita y párrafo apilados; en dos columnas si la columna de texto es ancha
+  &__intro {
+    display: grid;
+    gap: rem(32px);
+
+    @container (min-width: 36rem) {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  &__quote {
+    margin: 0;
+
+    blockquote {
+      margin: 0;
+      font-family: $font-serif;
+      font-size: rem(28px);
+      line-height: 1.2;
+    }
+
+    figcaption {
+      margin-block-start: rem(12px);
+      font-weight: 700;
+      color: $color-accent;
+    }
+  }
+
+  &__divider {
+    margin-block: rem(48px);
+    border-color: $color-accent;
+    opacity: 0.4;
+  }
+
+  &__subtitle {
+    margin-block-end: rem(24px);
+    font-size: clamp(rem(28px), 4vw, rem(40px));
+  }
+
+  // Lista numerada con círculos: el número lo genera un contador CSS
+  &__steps {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  &__step {
+    position: relative;
+    padding-inline-start: rem(56px);
+    margin-block-end: rem(24px);
+    counter-increment: step;
+
+    &::before {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      display: grid;
+      place-items: center;
+      width: rem(36px);
+      aspect-ratio: 1;
+      font-weight: 700;
+      color: $color-accent;
+      content: counter(step);
+      border: rem(2px) solid $color-accent;
+      border-radius: 50%;
+    }
+  }
+
+  // Con :where() la especificidad no aumenta, así que esta clase sobrescribe
+  // los estilos de h3 del artículo sin necesidad de selectores más largos
+  &__step-title {
+    font-family: $font-sans;
+    font-size: rem(18px);
+    font-weight: 700;
+    color: $color-text;
+  }
+
+  &__figure {
+    max-width: rem(1100px);
+    padding-inline: rem(16px);
+    margin: rem(48px) auto;
+  }
+
+  &__figure-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: rem(8px);
+  }
+
+  // :has(): si la foto lleva pie, se une a él y solo redondea las esquinas de arriba
+  &__figure:has(&__caption) &__figure-image {
+    border-radius: rem(8px) rem(8px) 0 0;
+  }
+
+  &__caption {
+    padding: rem(12px) rem(16px);
+    color: $color-bg;
+    background-color: $color-text;
+    border-radius: 0 0 rem(8px) rem(8px);
+  }
+}
+
+// :where() deja la especificidad en 0: son los estilos por defecto del texto del artículo
+// y cualquier clase los sobrescribe sin aumentar la especificidad.
+// :is() agrupa los dos niveles de título en un solo selector.
+:where(.article__body) p {
+  font-size: rem(18px);
+  line-height: 1.7;
+}
+
+:where(.article__body) :is(h2, h3) {
+  color: $color-accent;
+}

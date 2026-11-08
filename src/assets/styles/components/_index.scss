@@ -1,4 +1,5 @@
 // Punto de entrada de Components: reenvía los bloques BEM para cargarlos con un solo @use.
+@forward "article";
 @forward "page-intro";
 @forward "poster";
 @forward "site-header";
