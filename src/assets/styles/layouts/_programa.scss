@@ -1,1 +1,19 @@
-// Pendiente
+@use "../tools" as *;
+
+// Estilos por defecto de los títulos de sección de la página: misma capa que el texto del artículo
+@layer defaults {
+  :where(.program, .venues, .signup) h2 {
+    margin-block-end: 1lh;
+    color: $color-accent;
+  }
+}
+
+.program,
+.venues,
+.signup {
+  margin-block-end: rem(64px);
+}
+
+.signup {
+  max-width: 40rem;
+}

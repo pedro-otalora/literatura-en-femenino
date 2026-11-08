@@ -1,1 +1,13 @@
-// Pendiente
+@use "../tools" as *;
+
+// Estilos por defecto del texto del artículo: ganan a Bootstrap y pierden con cualquier componente
+@layer defaults {
+  :where(.article__body) p {
+    font-size: rem(18px);
+    line-height: 1.7;
+  }
+
+  :where(.article__body) :is(h2, h3) {
+    color: $color-accent;
+  }
+}

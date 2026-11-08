@@ -165,15 +165,3 @@
     border-radius: 0 0 rem(8px) rem(8px);
   }
 }
-
-// :where() deja la especificidad en 0: son los estilos por defecto del texto del artículo
-// y cualquier clase los sobrescribe sin aumentar la especificidad.
-// :is() agrupa los dos niveles de título en un solo selector.
-:where(.article__body) p {
-  font-size: rem(18px);
-  line-height: 1.7;
-}
-
-:where(.article__body) :is(h2, h3) {
-  color: $color-accent;
-}

@@ -9,8 +9,227 @@
   </head>
   <body>
     <include src="./views/header.html" locals='{"page": "programa"}'></include>
-    <main id="main">
-      <h1>Programa</h1>
+    <main id="main" class="container">
+      <header class="page-intro">
+        <h1 class="page-intro__title">Programa</h1>
+        <p class="page-intro__text">
+          Tres días de charlas y talleres gratuitos. Los talleres tienen plazas
+          limitadas y necesitan inscripción.
+        </p>
+        <p class="page-intro__typed">
+          <span class="visually-hidden"
+            >Ven a escribir poesía, contar historias y leer al sol.</span
+          >
+          <span aria-hidden="true"
+            >Ven a
+            <span class="page-intro__typed-text" id="typed"
+              >leer al sol</span
+            ></span
+          >
+        </p>
+      </header>
+
+      <section class="program" aria-labelledby="program-title">
+        <h2 id="program-title">Actividades</h2>
+        <div class="accordion" id="program-days">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#day-1"
+                aria-expanded="true"
+                aria-controls="day-1"
+              >
+                Viernes 18 de junio
+              </button>
+            </h3>
+            <div
+              id="day-1"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#program-days"
+            >
+              <div class="accordion-body">
+                <ul class="program__list" role="list">
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-18T18:00"
+                      >18:00</time
+                    ><span>Inauguración y charla de Lucía Ferrer</span
+                    ><span class="program__place">Plaza de la Virgen</span>
+                  </li>
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-18T19:30"
+                      >19:30</time
+                    ><span>Charla de Carmen Ruiz: cómo llegar a un editor</span
+                    ><span class="program__place">Plaza de la Virgen</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#day-2"
+                aria-expanded="false"
+                aria-controls="day-2"
+              >
+                Sábado 19 de junio
+              </button>
+            </h3>
+            <div
+              id="day-2"
+              class="accordion-collapse collapse"
+              data-bs-parent="#program-days"
+            >
+              <div class="accordion-body">
+                <ul class="program__list" role="list">
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-19T11:00"
+                      >11:00</time
+                    ><span>Taller de poesía con Andrés Molina</span
+                    ><span class="program__place">Biblioteca Pública</span>
+                  </li>
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-19T12:30"
+                      >12:30</time
+                    ><span>Taller de relato breve con Lucía Ferrer</span
+                    ><span class="program__place">Biblioteca Pública</span>
+                  </li>
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-19T19:00"
+                      >19:00</time
+                    ><span>Charla de Javier Soler: del libro a la pantalla</span
+                    ><span class="program__place">Plaza de la Virgen</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#day-3"
+                aria-expanded="false"
+                aria-controls="day-3"
+              >
+                Domingo 20 de junio
+              </button>
+            </h3>
+            <div
+              id="day-3"
+              class="accordion-collapse collapse"
+              data-bs-parent="#program-days"
+            >
+              <div class="accordion-body">
+                <ul class="program__list" role="list">
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-20T11:00"
+                      >11:00</time
+                    ><span
+                      >Taller familiar de álbum ilustrado con Elena
+                      Navarro</span
+                    ><span class="program__place">Jardines del Real</span>
+                  </li>
+                  <li class="program__item">
+                    <time class="program__time" datetime="2027-06-20T19:00"
+                      >19:00</time
+                    ><span
+                      >Lectura de los textos ganadores y clausura con Marta
+                      Ibáñez</span
+                    ><span class="program__place">Jardines del Real</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="venues" aria-labelledby="venues-title">
+        <h2 class="venues__title" id="venues-title">Dónde</h2>
+        <ul class="venues__list" role="list">
+          <li class="venues__item">
+            <strong class="venues__name">Plaza de la Virgen</strong>
+            Inauguración y charlas
+          </li>
+          <li class="venues__item">
+            <strong class="venues__name">Biblioteca Pública</strong> Talleres de
+            escritura
+          </li>
+          <li class="venues__item">
+            <strong class="venues__name">Jardines del Real</strong> Taller
+            familiar y clausura
+          </li>
+        </ul>
+      </section>
+
+      <section class="signup" aria-labelledby="signup-title">
+        <h2 id="signup-title">Inscríbete en un taller</h2>
+        <form
+          name="inscripcion"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <p class="visually-hidden">
+            <label>No rellenes este campo: <input name="bot-field" /></label>
+          </p>
+          <div class="mb-3">
+            <label class="form-label" for="name">Nombre</label>
+            <input
+              class="form-control"
+              id="name"
+              name="nombre"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="email">Correo electrónico</label>
+            <input
+              class="form-control"
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="workshop">Taller</label>
+            <select class="form-select" id="workshop" name="taller" required>
+              <option value="">Elige un taller</option>
+              <option>Poesía desde lo cotidiano · Andrés Molina</option>
+              <option>Relato breve · Lucía Ferrer</option>
+              <option>Álbum ilustrado en familia · Elena Navarro</option>
+            </select>
+          </div>
+          <div class="form-check mb-4">
+            <input
+              class="form-check-input"
+              id="privacy"
+              name="privacidad"
+              type="checkbox"
+              required
+            />
+            <label class="form-check-label" for="privacy"
+              >Acepto que mis datos se usen solo para gestionar la
+              inscripción</label
+            >
+          </div>
+          <button class="btn btn-primary" type="submit">
+            Enviar inscripción
+          </button>
+        </form>
+      </section>
     </main>
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script>

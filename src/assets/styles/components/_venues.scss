@@ -1,0 +1,37 @@
+@use "../tools" as *;
+
+.venues {
+  // Contenedor: las sedes pasan de una columna a tres según el ancho de la sección
+  container-type: inline-size;
+
+  --venues-accent: oklch(55% 0.15 40deg);
+
+  &__title {
+    // cqi: el tamaño depende del ancho del contenedor, no de la pantalla
+    font-size: clamp(rem(28px), 5cqi, rem(44px));
+  }
+
+  &__list {
+    display: grid;
+    gap: rem(24px);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @container (min-width: 48rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    padding-block: 0.5lh;
+    border-block-start: rem(4px) solid var(--venues-accent);
+  }
+
+  &__name {
+    display: block;
+    font-family: $font-serif;
+    font-size: rem(22px);
+    font-weight: 400;
+  }
+}

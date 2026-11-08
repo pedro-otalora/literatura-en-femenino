@@ -45,3 +45,7 @@ $nav-link-font-weight: 700;
 // Card: sin borde ni fondo propio, el retrato en arco hace de elemento visual de la tarjeta
 $card-border-width: 0;
 $card-bg: transparent;
+
+// Accordion: el día abierto se marca con el color de acento y no con el azul por defecto
+$accordion-button-active-bg: $color-bg;
+$accordion-button-active-color: $color-accent;

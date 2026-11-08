@@ -1,0 +1,34 @@
+@use "../tools" as *;
+
+.program {
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  // Hora a la izquierda; actividad y lugar a la derecha
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 rem(16px);
+    padding-block: 0.5lh;
+    border-block-end: 1px solid color-mix(in oklch, $color-text 15%, transparent);
+  }
+
+  &__time {
+    grid-row: span 2;
+    align-self: start;
+    padding: rem(2px) rem(8px);
+    font-weight: 700;
+
+    // Ocre suavizado: se mezcla en oklch para que el tono no se apague al aclararlo
+    background-color: color-mix(in oklch, $color-highlight 40%, $color-bg);
+    border-radius: rem(4px);
+  }
+
+  &__place {
+    font-size: rem(14px);
+    color: oklch(45% 0.05 250deg);
+  }
+}

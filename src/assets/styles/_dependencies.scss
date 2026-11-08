@@ -6,6 +6,16 @@
 @import "npm:@fontsource/dm-sans/700.css";
 @import "npm:bootstrap-icons/font/bootstrap-icons.css";
 
+// Orden de las capas: Bootstrap queda por debajo de todo, después los estilos por defecto
+// de las páginas, y por encima los componentes sin capa, sea cual sea su especificidad.
+@layer vendor, defaults;
+
 // Las variables van antes de Bootstrap para que sus !default tomen nuestros valores.
 @import "variables";
-@import "bootstrap/scss/bootstrap";
+
+@layer vendor {
+  // En CSS un @import no puede ir dentro de @layer, pero en Sass sí: Sass lo resuelve
+  // al compilar y deja el código de Bootstrap dentro de la capa
+  // stylelint-disable-next-line no-invalid-position-at-import-rule
+  @import "bootstrap/scss/bootstrap";
+}
