@@ -1,14 +1,24 @@
 @use "../tools" as *;
 
 .site-footer {
-  padding-block: rem(48px) rem(24px);
+  padding-block: rem(32px) rem(24px);
   color: $color-bg;
-  background-color: $color-text;
+  background-color: $magenta-deep;
+
+  // El mismo borde degradado que la cabecera, arriba: enmarca la página por los dos extremos
+  border-block-start: rem(4px) solid;
+  border-image: $gradient-brand 1;
+
+  &__contact {
+    text-align: center;
+  }
 
   &__title {
     margin-block-end: rem(8px);
     font-size: rem(24px);
-    color: $color-highlight;
+
+    // Rosa claro derivado del magenta de marca. El magenta puro no llega a 4,5:1 sobre el magenta oscuro.
+    color: color-mix(in oklch, $magenta 60%, $white);
   }
 
   // address pone cursiva por defecto; aquí es solo un bloque de datos de contacto
@@ -28,29 +38,41 @@
     }
   }
 
-  // Móvil: logo, menú e iconos apilados. Desde md, en una sola fila.
+  // Móvil: logo, menú e iconos apilados y centrados, como el resto del pie.
+  // Desde md, rejilla 1fr auto 1fr: las columnas laterales iguales dejan el menú en el centro exacto.
   &__bottom {
     display: flex;
     flex-direction: column;
     gap: rem(24px);
-    align-items: flex-start;
+    align-items: center;
     padding-block-start: rem(24px);
+    margin-block-end: rem(24px);
 
     // línea sutil sin color nuevo: mezcla el texto con el fondo del pie
     border-block-start: 1px solid color-mix(in srgb, $color-bg 30%, $color-text);
 
     @include mq(md) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
     }
   }
 
+  &__social {
+    @include mq(md) {
+      justify-self: end;
+    }
+  }
+
+  // Mismo tamaño que el logo de la cabecera: si cambia la variable, cambian los dos
   &__logo {
     font-family: $font-serif;
-    font-size: rem(24px);
+    font-size: $navbar-brand-font-size;
     color: $color-bg;
     text-decoration: none;
+  }
+
+  &__icon {
+    margin-inline-end: 0.3em;
   }
 
   // Reboot da margen y sangría a las listas
@@ -66,16 +88,22 @@
 
   &__social-link {
     font-size: rem(24px);
-    color: $color-highlight;
+    color: $color-bg;
 
     &:hover,
     &:focus-visible {
-      color: $color-bg;
+      color: $color-highlight;
     }
   }
 
+  &__bottom {
+    // …lo que ya tiene…
+    margin-block-end: rem(24px);
+  }
+
   &__note {
-    margin: rem(24px) 0 0;
+    margin: 0 0 rem(4px);
     font-size: rem(14px);
+    text-align: center;
   }
 }

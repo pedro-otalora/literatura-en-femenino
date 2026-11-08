@@ -7,6 +7,7 @@ $indigo: #404381;
 $petrol: #156485;
 $magenta: #f1439c;
 $magenta-dark: #c2187a;
+$magenta-deep: #6b1047;
 $cream: #f6e093;
 $paper: #fffaf3;
 $white: #fff;
@@ -47,11 +48,19 @@ $navbar-dark-color: $white;
 $navbar-dark-hover-color: $white;
 $navbar-dark-active-color: $white;
 $navbar-dark-icon-color: $white;
-$navbar-brand-font-size: 1.5rem;
+$navbar-brand-font-size: 1.3rem;
 $nav-link-font-weight: 700;
 
-// Margen lateral de los contenedores: lo usan .container-fluid y el póster, para que todo quede alineado
-$container-padding-x: 1.5rem;
+// Margen lateral de .container (Bootstrap aplica la mitad a cada lado)
+$container-padding-x: 50px;
+
+// Sin escalón sm: en móvil, horizontal incluido, el contenido ocupa todo el ancho, como la cabecera
+$container-max-widths: (
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
 
 
 // Alto aproximado de la cabecera: el póster ocupa la pantalla visible menos este valor

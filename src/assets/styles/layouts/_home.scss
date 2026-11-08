@@ -1,9 +1,0 @@
-@use "../tools" as *;
-
-// Fondo solo en la portada: :has() detecta la página por su contenido, sin añadir clases al body.
-// "in oklch" interpola el degradado en ese espacio de color para que la transición no se ensucie.
-body:has(.poster) {
-  background-image:
-    radial-gradient(circle at 15% 20% in oklch, color-mix(in oklch, $color-highlight 40%, $color-bg), $color-bg 55%),
-    linear-gradient(in oklch to bottom, $color-bg, color-mix(in oklch, $color-accent 10%, $color-bg));
-}

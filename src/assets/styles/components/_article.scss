@@ -3,60 +3,10 @@
 .article {
   padding-block-end: rem(64px);
 
-  // Cabecera: foto y texto apilados en la misma celda de la retícula
-  &__hero {
-    display: grid;
-    min-height: rem(360px);
-    margin-block-end: rem(48px);
-  }
-
-  &__hero-image,
-  &__hero-content {
-    grid-area: 1 / 1;
-  }
-
-  &__hero-image {
-    width: 100%;
-    height: 100%;
-    max-height: rem(560px);
-    object-fit: cover;
-  }
-
-  &__hero-content {
-    z-index: 1;
-    align-self: end;
-    padding-block: rem(48px);
-  }
-
-  // :has(): solo si la cabecera tiene foto se oscurece la imagen y el texto pasa a claro.
-  // Sin foto, la cabecera queda con el fondo arena y el texto oscuro.
-  &__hero:has(&__hero-image) {
-    color: $color-bg;
-
-    &::after {
-      grid-area: 1 / 1;
-      content: "";
-      background-image: linear-gradient(to top, $color-text 15%, color-mix(in srgb, $color-text 30%, transparent));
-    }
-  }
-
-  &__kicker {
-    margin-block-end: rem(8px);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  &__title {
-    max-width: 18ch;
-    font-size: clamp(rem(40px), 7vw, rem(80px));
-    line-height: 1;
-  }
-
   &__body {
+    // Columna de lectura más estrecha que .container: este max-width gana
+    // al de Bootstrap porque Bootstrap va en la capa vendor
     max-width: rem(760px);
-    padding-inline: rem(16px);
-    margin-inline: auto;
 
     // Contenedor: la introducción cambia según el ancho de la columna de texto
     container-type: inline-size;

@@ -9,234 +9,253 @@
   </head>
   <body>
     <include src="./views/header.html" locals='{"page": "programa"}'></include>
-    <main id="main" class="container">
-      <header class="page-intro">
-        <h1 class="page-intro__title">Programa</h1>
-        <p class="page-intro__text">
-          Tres días de charlas y talleres gratuitos. Los talleres tienen plazas
-          limitadas y necesitan inscripción.
-        </p>
-      </header>
-
-      <section class="program" aria-labelledby="program-title">
-        <h2 id="program-title">Actividades</h2>
-        <div class="accordion" id="program-days">
-          <div class="accordion-item">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#day-1"
-                aria-expanded="true"
-                aria-controls="day-1"
-              >
-                Viernes 18 de junio
-              </button>
-            </h3>
-            <div
-              id="day-1"
-              class="accordion-collapse collapse show"
-              data-bs-parent="#program-days"
-            >
-              <div class="accordion-body">
-                <ul class="program__list" role="list">
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-18T18:00"
-                      >18:00</time
-                    ><span
-                      >Inauguración y charla «Firmar con nombre de hombre» ·
-                      Lucía Ferrer</span
-                    ><span class="program__place"
-                      >Plaza Emilia Pardo Bazán</span
-                    >
-                  </li>
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-18T19:30"
-                      >19:30</time
-                    ><span
-                      >Charla «La autora escondida: María Lejárraga» · Inés
-                      Garrido</span
-                    ><span class="program__place"
-                      >Plaza Emilia Pardo Bazán</span
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#day-2"
-                aria-expanded="false"
-                aria-controls="day-2"
-              >
-                Sábado 19 de junio
-              </button>
-            </h3>
-            <div
-              id="day-2"
-              class="accordion-collapse collapse"
-              data-bs-parent="#program-days"
-            >
-              <div class="accordion-body">
-                <ul class="program__list" role="list">
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-19T11:00"
-                      >11:00</time
-                    ><span
-                      >Taller de relato: escribir con voz propia · Lucía
-                      Ferrer</span
-                    ><span class="program__place">Biblioteca Carmen Conde</span>
-                  </li>
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-19T19:00"
-                      >19:00</time
-                    ><span>Charla «Las Sinsombrero» · Carmen Ruiz</span
-                    ><span class="program__place"
-                      >Plaza Emilia Pardo Bazán</span
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h3 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#day-3"
-                aria-expanded="false"
-                aria-controls="day-3"
-              >
-                Domingo 20 de junio
-              </button>
-            </h3>
-            <div
-              id="day-3"
-              class="accordion-collapse collapse"
-              data-bs-parent="#program-days"
-            >
-              <div class="accordion-body">
-                <ul class="program__list" role="list">
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-20T11:00"
-                      >11:00</time
-                    ><span
-                      >Taller familiar «Dibujar a las que faltan» · Elena
-                      Navarro</span
-                    ><span class="program__place"
-                      >Jardín de las Sinsombrero</span
-                    >
-                  </li>
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-20T12:30"
-                      >12:30</time
-                    ><span
-                      >Charla «Un sillón para ellas» · Teresa Valcárcel</span
-                    ><span class="program__place">Biblioteca Carmen Conde</span>
-                  </li>
-                  <li class="program__item">
-                    <time class="program__time" datetime="2027-06-20T19:00"
-                      >19:00</time
-                    ><span
-                      >Charla «¿Dónde están en los libros de texto?» · Marta
-                      Ibáñez, y lectura de los textos ganadores</span
-                    ><span class="program__place"
-                      >Jardín de las Sinsombrero</span
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="venues" aria-labelledby="venues-title">
-        <h2 class="venues__title" id="venues-title">Dónde</h2>
-        <ul class="venues__list" role="list">
-          <li class="venues__item">
-            <strong class="venues__name">Plaza Emilia Pardo Bazán</strong>
-            Inauguración y charlas
-          </li>
-          <li class="venues__item">
-            <strong class="venues__name">Biblioteca Carmen Conde</strong> Taller
-            de relato y charla
-          </li>
-          <li class="venues__item">
-            <strong class="venues__name">Jardín de las Sinsombrero</strong>
-            Taller familiar y clausura
-          </li>
-        </ul>
-      </section>
-
-      <section class="signup" aria-labelledby="signup-title">
-        <h2 id="signup-title">Inscríbete en un taller</h2>
-        <form
-          name="inscripcion"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
-          <p class="visually-hidden">
-            <label>No rellenes este campo: <input name="bot-field" /></label>
+    <main id="main">
+      <header class="page-hero">
+        <img
+          class="page-hero__image"
+          src="./assets/images/articulo-1.jpg?width=1600"
+          srcset="
+            ./assets/images/articulo-1.jpg?width=800   800w,
+            ./assets/images/articulo-1.jpg?width=1600 1600w
+          "
+          sizes="100vw"
+          alt=""
+        />
+        <div class="page-hero__content container">
+          <p class="page-hero__kicker">Programa</p>
+          <h1 class="page-hero__title">
+            Tres días de charlas y talleres gratuitos
+          </h1>
+          <p class="page-hero__text">
+            Los talleres tienen plazas limitadas y necesitan inscripción.
           </p>
-          <div class="mb-3">
-            <label class="form-label" for="name">Nombre</label>
-            <input
-              class="form-control"
-              id="name"
-              name="nombre"
-              autocomplete="name"
-              required
-            />
+        </div>
+      </header>
+      <div class="container">
+        <section class="program" aria-labelledby="program-title">
+          <h2 id="program-title">Actividades</h2>
+          <div class="accordion" id="program-days">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#day-1"
+                  aria-expanded="true"
+                  aria-controls="day-1"
+                >
+                  Viernes 18 de junio
+                </button>
+              </h3>
+              <div
+                id="day-1"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#program-days"
+              >
+                <div class="accordion-body">
+                  <ul class="program__list" role="list">
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-18T18:00"
+                        >18:00</time
+                      ><span
+                        >Inauguración y charla «Firmar con nombre de hombre» ·
+                        Lucía Ferrer</span
+                      ><span class="program__place"
+                        >Plaza Emilia Pardo Bazán</span
+                      >
+                    </li>
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-18T19:30"
+                        >19:30</time
+                      ><span
+                        >Charla «La autora escondida: María Lejárraga» · Inés
+                        Garrido</span
+                      ><span class="program__place"
+                        >Plaza Emilia Pardo Bazán</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#day-2"
+                  aria-expanded="false"
+                  aria-controls="day-2"
+                >
+                  Sábado 19 de junio
+                </button>
+              </h3>
+              <div
+                id="day-2"
+                class="accordion-collapse collapse"
+                data-bs-parent="#program-days"
+              >
+                <div class="accordion-body">
+                  <ul class="program__list" role="list">
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-19T11:00"
+                        >11:00</time
+                      ><span
+                        >Taller de relato: escribir con voz propia · Lucía
+                        Ferrer</span
+                      ><span class="program__place"
+                        >Biblioteca Carmen Conde</span
+                      >
+                    </li>
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-19T19:00"
+                        >19:00</time
+                      ><span>Charla «Las Sinsombrero» · Carmen Ruiz</span
+                      ><span class="program__place"
+                        >Plaza Emilia Pardo Bazán</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#day-3"
+                  aria-expanded="false"
+                  aria-controls="day-3"
+                >
+                  Domingo 20 de junio
+                </button>
+              </h3>
+              <div
+                id="day-3"
+                class="accordion-collapse collapse"
+                data-bs-parent="#program-days"
+              >
+                <div class="accordion-body">
+                  <ul class="program__list" role="list">
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-20T11:00"
+                        >11:00</time
+                      ><span
+                        >Taller familiar «Dibujar a las que faltan» · Elena
+                        Navarro</span
+                      ><span class="program__place"
+                        >Jardín de las Sinsombrero</span
+                      >
+                    </li>
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-20T12:30"
+                        >12:30</time
+                      ><span
+                        >Charla «Un sillón para ellas» · Teresa Valcárcel</span
+                      ><span class="program__place"
+                        >Biblioteca Carmen Conde</span
+                      >
+                    </li>
+                    <li class="program__item">
+                      <time class="program__time" datetime="2027-06-20T19:00"
+                        >19:00</time
+                      ><span
+                        >Charla «¿Dónde están en los libros de texto?» · Marta
+                        Ibáñez, y lectura de los textos ganadores</span
+                      ><span class="program__place"
+                        >Jardín de las Sinsombrero</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label class="form-label" for="email">Correo electrónico</label>
-            <input
-              class="form-control"
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label" for="workshop">Taller</label>
-            <select class="form-select" id="workshop" name="taller" required>
-              <option value="">Elige un taller</option>
-              <option>Relato: escribir con voz propia · Lucía Ferrer</option>
-              <option>
-                Dibujar a las que faltan (familiar) · Elena Navarro
-              </option>
-            </select>
-          </div>
-          <div class="form-check mb-4">
-            <input
-              class="form-check-input"
-              id="privacy"
-              name="privacidad"
-              type="checkbox"
-              required
-            />
-            <label class="form-check-label" for="privacy"
-              >Acepto que mis datos se usen solo para gestionar la
-              inscripción</label
-            >
-          </div>
-          <button class="btn btn-primary" type="submit">
-            Enviar inscripción
-          </button>
-        </form>
-      </section>
+        </section>
+
+        <section class="venues" aria-labelledby="venues-title">
+          <h2 class="venues__title" id="venues-title">Dónde</h2>
+          <ul class="venues__list" role="list">
+            <li class="venues__item">
+              <strong class="venues__name">Plaza Emilia Pardo Bazán</strong>
+              Inauguración y charlas
+            </li>
+            <li class="venues__item">
+              <strong class="venues__name">Biblioteca Carmen Conde</strong>
+              Taller de relato y charla
+            </li>
+            <li class="venues__item">
+              <strong class="venues__name">Jardín de las Sinsombrero</strong>
+              Taller familiar y clausura
+            </li>
+          </ul>
+        </section>
+
+        <section class="signup" aria-labelledby="signup-title">
+          <h2 id="signup-title">Inscríbete en un taller</h2>
+          <form
+            name="inscripcion"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <p class="visually-hidden">
+              <label>No rellenes este campo: <input name="bot-field" /></label>
+            </p>
+            <div class="mb-3">
+              <label class="form-label" for="name">Nombre</label>
+              <input
+                class="form-control"
+                id="name"
+                name="nombre"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="email">Correo electrónico</label>
+              <input
+                class="form-control"
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="workshop">Taller</label>
+              <select class="form-select" id="workshop" name="taller" required>
+                <option value="">Elige un taller</option>
+                <option>Relato: escribir con voz propia · Lucía Ferrer</option>
+                <option>
+                  Dibujar a las que faltan (familiar) · Elena Navarro
+                </option>
+              </select>
+            </div>
+            <div class="form-check mb-4">
+              <input
+                class="form-check-input"
+                id="privacy"
+                name="privacidad"
+                type="checkbox"
+                required
+              />
+              <label class="form-check-label" for="privacy"
+                >Acepto que mis datos se usen solo para gestionar la
+                inscripción</label
+              >
+            </div>
+            <button class="btn btn-primary" type="submit">
+              Enviar inscripción
+            </button>
+          </form>
+        </section>
+      </div>
     </main>
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script>

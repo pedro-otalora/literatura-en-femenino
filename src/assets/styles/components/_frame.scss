@@ -10,13 +10,14 @@
   &::after {
     position: absolute;
     inset: 0;
+    pointer-events: none;
+    content: "";
     background-image: $gradient-brand;
     mix-blend-mode: color;
+
     // La foto se ve con su color original; el degradado aparece al pasar el ratón
     opacity: 0;
-    content: "";
     transition: opacity 0.4s ease;
-    pointer-events: none;
   }
 
   @media (prefers-reduced-motion: reduce) {

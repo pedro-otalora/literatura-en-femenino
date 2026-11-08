@@ -2,6 +2,7 @@
 
 .site-header {
   background-color: $color-accent;
+
   // border-image pinta el borde con el degradado de marca
   border-block-end: rem(4px) solid;
   border-image: $gradient-brand 1;
@@ -10,10 +11,23 @@
     font-family: $font-serif;
   }
 
-  // La página activa y el hover se marcan con subrayado y no con color:
-  // el crema sobre magenta solo llega a 4,3:1, por debajo de AA
-  :is(a:hover, [aria-current="page"]) {
-    text-decoration: underline;
-    text-underline-offset: 0.4em;
+  &__icon {
+    margin-inline-end: 0.3em;
+  }
+
+    // Enlaces del menú: se identifican por su atributo aria-current (page o false),
+  // así no hay que sobrescribir las clases de Bootstrap. El logo no lo lleva y no se ve afectado.
+  [aria-current] {
+    padding-inline: rem(12px);
+    border-radius: rem(4px);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: color-mix(in oklch, $magenta-deep 50%, transparent);
+    }
+  }
+
+  [aria-current="page"] {
+    background-color: $magenta-deep;
   }
 }

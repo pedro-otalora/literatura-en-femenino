@@ -9,62 +9,78 @@
   </head>
   <body>
     <include src="./views/header.html" locals='{"page": "ponentes"}'></include>
-    <main id="main" class="container">
-      <header class="page-intro">
-        <h1 class="page-intro__title">Ponentes</h1>
-        <p class="page-intro__text">
-          Seis especialistas recorren la historia de las escritoras que tuvieron
-          que esconderse para publicar, y de las que el canon dejó fuera.
-        </p>
+    <main id="main">
+      <header class="page-hero">
+        <img
+          class="page-hero__image"
+          src="./assets/images/articulo-1.jpg?width=1600"
+          srcset="
+            ./assets/images/articulo-1.jpg?width=800   800w,
+            ./assets/images/articulo-1.jpg?width=1600 1600w
+          "
+          sizes="100vw"
+          alt=""
+        />
+        <div class="page-hero__content container">
+          <p class="page-hero__kicker">Ponentes</p>
+          <h1 class="page-hero__title">
+            Seis especialistas en las escritoras que la historia olvidó
+          </h1>
+          <p class="page-hero__text">
+            Mujeres que tuvieron que esconderse para publicar y autoras que el
+            canon dejó fuera.
+          </p>
+        </div>
       </header>
+      <div class="container">
+        <ul class="speaker-grid" role="list">
+          <include
+            src="./views/speaker-card.html"
+            locals='{"name": "Lucía Ferrer", "role": "Historiadora de la literatura", "photo": "ponente-1.jpg", "summary": "Firmar con nombre de hombre: los seudónimos masculinos en el siglo XIX.", "bio": "Lucía Ferrer investiga la escritura de mujeres en el siglo XIX. En su charla explicará por qué Cecilia Böhl de Faber publicó como Fernán Caballero, Mary Ann Evans como George Eliot y las hermanas Brontë como los hermanos Bell, y qué cambiaba cuando un libro llevaba firma de hombre."}'
+          ></include>
+          <include
+            src="./views/speaker-card.html"
+            locals='{"name": "Inés Garrido", "role": "Filóloga", "photo": "ponente-2.jpg", "summary": "La autora escondida: María Lejárraga y las obras firmadas por su marido.", "bio": "Inés Garrido es especialista en teatro español de principios del siglo XX. Hablará de María Lejárraga, que escribió buena parte de las obras que se publicaron y estrenaron con el nombre de su marido, Gregorio Martínez Sierra, y de cómo se ha reconstruido su autoría."}'
+          ></include>
+          <include
+            src="./views/speaker-card.html"
+            locals='{"name": "Carmen Ruiz", "role": "Editora", "photo": "ponente-3.jpg", "summary": "Las Sinsombrero: las mujeres de la Generación del 27.", "bio": "Carmen Ruiz dirige una editorial dedicada a recuperar obras de autoras olvidadas. En su charla presentará a las Sinsombrero, escritoras y artistas como Concha Méndez, Rosa Chacel o Maruja Mallo, que formaron parte de la Generación del 27 pero quedaron fuera de los manuales."}'
+          ></include>
+          <include
+            src="./views/speaker-card.html"
+            locals='{"name": "Teresa Valcárcel", "role": "Investigadora", "photo": "ponente-4.jpg", "summary": "Un sillón para ellas: las mujeres y la Real Academia Española.", "bio": "Teresa Valcárcel estudia la historia de las instituciones literarias. Repasará las candidaturas rechazadas de Gertrudis Gómez de Avellaneda y Emilia Pardo Bazán, y el camino hasta 1979, cuando Carmen Conde se convirtió en la primera mujer que ocupó un sillón en la Real Academia Española."}'
+          ></include>
+          <include
+            src="./views/speaker-card.html"
+            locals='{"name": "Elena Navarro", "role": "Ilustradora", "photo": "ponente-5.jpg", "summary": "Taller familiar: dibujar a las que faltan.", "bio": "Elena Navarro ha ilustrado biografías de mujeres para público infantil. Dirigirá un taller para familias en el que cada participante escribirá y dibujará la biografía breve de una escritora que no aparece en sus libros de texto."}'
+          ></include>
+          <include
+            src="./views/speaker-card.html"
+            locals='{"name": "Marta Ibáñez", "role": "Crítica literaria", "photo": "ponente-6.jpg", "summary": "¿Dónde están en los libros de texto? El canon escolar y las autoras.", "bio": "Marta Ibáñez escribe crítica en prensa y presenta un pódcast sobre libros. Analizará cuántas autoras aparecen en los libros de texto de Lengua y Literatura y qué se pierde cuando faltan. También presidirá el jurado del concurso literario."}'
+          ></include>
+        </ul>
 
-      <ul class="speaker-grid" role="list">
-        <include
-          src="./views/speaker-card.html"
-          locals='{"name": "Lucía Ferrer", "role": "Historiadora de la literatura", "photo": "ponente-1.jpg", "summary": "Firmar con nombre de hombre: los seudónimos masculinos en el siglo XIX.", "bio": "Lucía Ferrer investiga la escritura de mujeres en el siglo XIX. En su charla explicará por qué Cecilia Böhl de Faber publicó como Fernán Caballero, Mary Ann Evans como George Eliot y las hermanas Brontë como los hermanos Bell, y qué cambiaba cuando un libro llevaba firma de hombre."}'
-        ></include>
-        <include
-          src="./views/speaker-card.html"
-          locals='{"name": "Inés Garrido", "role": "Filóloga", "photo": "ponente-2.jpg", "summary": "La autora escondida: María Lejárraga y las obras firmadas por su marido.", "bio": "Inés Garrido es especialista en teatro español de principios del siglo XX. Hablará de María Lejárraga, que escribió buena parte de las obras que se publicaron y estrenaron con el nombre de su marido, Gregorio Martínez Sierra, y de cómo se ha reconstruido su autoría."}'
-        ></include>
-        <include
-          src="./views/speaker-card.html"
-          locals='{"name": "Carmen Ruiz", "role": "Editora", "photo": "ponente-3.jpg", "summary": "Las Sinsombrero: las mujeres de la Generación del 27.", "bio": "Carmen Ruiz dirige una editorial dedicada a recuperar obras de autoras olvidadas. En su charla presentará a las Sinsombrero, escritoras y artistas como Concha Méndez, Rosa Chacel o Maruja Mallo, que formaron parte de la Generación del 27 pero quedaron fuera de los manuales."}'
-        ></include>
-        <include
-          src="./views/speaker-card.html"
-          locals='{"name": "Teresa Valcárcel", "role": "Investigadora", "photo": "ponente-4.jpg", "summary": "Un sillón para ellas: las mujeres y la Real Academia Española.", "bio": "Teresa Valcárcel estudia la historia de las instituciones literarias. Repasará las candidaturas rechazadas de Gertrudis Gómez de Avellaneda y Emilia Pardo Bazán, y el camino hasta 1979, cuando Carmen Conde se convirtió en la primera mujer que ocupó un sillón en la Real Academia Española."}'
-        ></include>
-        <include
-          src="./views/speaker-card.html"
-          locals='{"name": "Elena Navarro", "role": "Ilustradora", "photo": "ponente-5.jpg", "summary": "Taller familiar: dibujar a las que faltan.", "bio": "Elena Navarro ha ilustrado biografías de mujeres para público infantil. Dirigirá un taller para familias en el que cada participante escribirá y dibujará la biografía breve de una escritora que no aparece en sus libros de texto."}'
-        ></include>
-        <include
-          src="./views/speaker-card.html"
-          locals='{"name": "Marta Ibáñez", "role": "Crítica literaria", "photo": "ponente-6.jpg", "summary": "¿Dónde están en los libros de texto? El canon escolar y las autoras.", "bio": "Marta Ibáñez escribe crítica en prensa y presenta un pódcast sobre libros. Analizará cuántas autoras aparecen en los libros de texto de Lengua y Literatura y qué se pierde cuando faltan. También presidirá el jurado del concurso literario."}'
-        ></include>
-      </ul>
-
-      <!-- Una sola ventana modal para las seis biografías: el contenido lo pone main.js al abrirla -->
-      <div
-        class="modal fade"
-        id="speaker-modal"
-        tabindex="-1"
-        aria-labelledby="speaker-modal-title"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title fs-4" id="speaker-modal-title"></h2>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Cerrar"
-              ></button>
+        <!-- Una sola ventana modal para las seis biografías: el contenido lo pone main.js al abrirla -->
+        <div
+          class="modal fade"
+          id="speaker-modal"
+          tabindex="-1"
+          aria-labelledby="speaker-modal-title"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-4" id="speaker-modal-title"></h2>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Cerrar"
+                ></button>
+              </div>
+              <div class="modal-body"></div>
             </div>
-            <div class="modal-body"></div>
           </div>
         </div>
       </div>

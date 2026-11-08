@@ -9,6 +9,10 @@
     width: min(70%, rem(220px));
     aspect-ratio: 4 / 5;
     margin: rem(32px) auto 0;
+
+    // Paspartú: línea separada de la foto. outline no ocupa espacio, así que no mueve el diseño
+    outline: rem(2px) solid $color-accent;
+    outline-offset: rem(6px);
   }
 
   &__name {
@@ -32,7 +36,7 @@
 
     &__media {
       flex: 0 0 35%;
-      margin: rem(24px);
+      margin: rem(24px) rem(24px) rem(24px) 0;
     }
   }
 

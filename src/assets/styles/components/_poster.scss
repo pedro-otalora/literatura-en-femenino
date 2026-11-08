@@ -1,10 +1,35 @@
 @use "../tools" as *;
 
-// Versión alternativa sin Grid (y móvil): título, foto, frase y botones apilados.
+// Móvil y versión alternativa sin Grid: antetítulo y título, foto, frase y botones apilados.
+// Fondo azul en todos los tamaños; en escritorio es el cuarto izquierdo, que la foto no cubre.
 .poster {
-  &__heading,
+  color: $white;
+  background-color: $color-text;
+
+  &__heading {
+    padding-block: rem(32px) rem(8px);
+  }
+
   &__body {
-    padding: rem(32px) $container-padding-x;
+    padding-block: rem(8px) rem(32px);
+  }
+
+  &__media {
+    aspect-ratio: 3 / 2;
+
+    // Móvil: la foto se funde con el azul por arriba y por abajo
+    &::before {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-image: linear-gradient(
+        to bottom,
+        $color-text,
+        transparent 25% 75%,
+        $color-text
+      );
+    }
   }
 
   &__kicker {
@@ -20,13 +45,14 @@
     line-height: 0.9;
   }
 
-  &__title-line {
-    display: block;
-    color: $color-accent;
+  // Sobre el azul, el acento es crema (9,8:1); el magenta no se leería
+  &__title-line,
+  &__typed-text {
+    color: $color-highlight;
   }
 
-  &__media {
-    aspect-ratio: 3 / 2;
+  &__title-line {
+    display: block;
   }
 
   &__typed {
@@ -34,25 +60,22 @@
     min-height: 3lh;
     margin-block-end: rem(24px);
     font-family: $font-serif;
-    font-size: clamp(rem(24px), 3vw, rem(40px));
-  }
-
-  &__typed-text {
-    color: $color-accent;
+    font-size: clamp(rem(24px), 2vw, rem(32px));
   }
 
   &__links {
-    // Contenedor: los botones se adaptan al espacio que les deja el póster
-    container-type: inline-size;
     display: flex;
     flex-wrap: wrap;
     gap: rem(16px);
-    margin: 0;
     padding: 0;
+    margin: 0;
+
+    // Contenedor: los botones se adaptan al espacio que les deja el póster
+    container-type: inline-size;
     list-style: none;
   }
 
-  // Si el espacio es estrecho, los botones se apilan a todo el ancho
+  // Si el espacio es estrecho (móvil o la columna izquierda en escritorio), los botones se apilan
   @container (max-width: 26rem) {
     &__links-item {
       flex: 1 1 100%;
@@ -63,72 +86,71 @@
     }
   }
 
+  // Botón secundario en contorno blanco sobre el azul, cambiando las variables CSS del botón de Bootstrap
+  &__button--light {
+    --bs-btn-color: #{$white};
+    --bs-btn-border-color: #{$white};
+  }
+
   // :has() conecta dos zonas del póster: al pasar sobre un botón, o enfocarlo con teclado, se tiñe la foto
   &:has(&__button:hover, &__button:focus-visible) &__media::after {
     opacity: 1;
   }
 }
 
-// Versión póster: foto a sangre con el título arriba y la frase y los botones abajo.
+// Escritorio: la foto ocupa 3/4 a la derecha y el título la pisa.
 @supports (display: grid) {
   .poster {
-    @include mq(md) {
+    @include mq(lg) {
       display: grid;
-      // Fila 1: título. Fila 2: espacio flexible, donde se ve la foto. Fila 3: frase y botones
-      grid-template-rows: auto 1fr auto;
+
+      // Dos filas flexibles, arriba y abajo, reparten el espacio sobrante: el texto queda centrado
+      grid-template-rows: 1fr auto auto auto 1fr;
+      grid-template-columns: repeat(4, 1fr);
+
       // Ocupa la pantalla visible (dvh, sin las barras del navegador) menos la cabecera
       min-height: calc(100dvh - #{$header-height});
-      color: $white;
+      padding-inline-start: $container-padding-x;
 
-      // Foto y texto comparten la misma columna: el texto se monta sobre la foto
-      &__heading,
-      &__body,
-      &__media {
+      // El contenedor desaparece de la retícula: antetítulo y título se colocan cada uno en su celda
+      &__heading {
+        display: contents;
+      }
+
+      &__kicker {
+        grid-row: 2;
         grid-column: 1;
       }
 
-      &__heading,
-      &__body {
+      &__title {
         z-index: 1;
-      }
-
-      &__heading {
-        grid-row: 1;
+        grid-row: 3;
+        grid-column: 1 / 4;
       }
 
       &__body {
-        grid-row: 3;
+        grid-row: 4;
+        grid-column: 1;
+        padding: rem(32px) rem(24px) 0 0;
       }
 
       &__media {
         grid-row: 1 / -1;
+        grid-column: 2 / -1;
         aspect-ratio: auto;
 
-        // Tinta arriba y abajo, transparente en el centro: el texto se lee y la foto queda despejada
+        // Funde el borde izquierdo de la foto con el azul y da contraste al título que la pisa
         &::before {
           position: absolute;
           inset: 0;
-          background-image: linear-gradient(
-            to bottom,
-            color-mix(in oklch, $color-text 85%, transparent),
-            transparent 40% 60%,
-            color-mix(in oklch, $color-text 85%, transparent)
-          );
-          content: "";
           pointer-events: none;
+          content: "";
+          background-image: linear-gradient(
+            to right,
+            $color-text,
+            transparent 40%
+          );
         }
-      }
-
-      // Sobre la foto oscura, el acento pasa a crema (9,8:1); el magenta no se leería
-      &__title-line,
-      &__typed-text {
-        color: $color-highlight;
-      }
-
-      // El botón secundario pasa a contorno blanco cambiando las variables CSS del propio botón de Bootstrap
-      &__button--light {
-        --bs-btn-color: #{$white};
-        --bs-btn-border-color: #{$white};
       }
     }
   }
@@ -136,5 +158,5 @@
 
 // Cursor que genera Typed.js: la clase la crea la librería, por eso no sigue BEM
 .typed-cursor {
-  color: $color-accent;
+  color: $color-highlight;
 }
