@@ -1,24 +1,22 @@
 @use "../tools" as *;
 
-// Versión alternativa sin Grid: bloques apilados y centrados, legible en cualquier navegador.
+// Versión alternativa sin Grid (y móvil): título, foto, frase y botones apilados.
 .poster {
-  padding-block: rem(32px);
-  text-align: center;
-
-  // El sol es solo decorativo y necesita Grid para colocarse, así que no se muestra sin él
-  &__sun {
-    display: none;
+  &__heading,
+  &__body {
+    padding: rem(32px) $container-padding-x;
   }
 
-  &__image {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-block-end: rem(24px);
+  &__kicker {
+    margin-block-end: rem(8px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   &__title {
-    font-size: clamp(rem(56px), 14vw, rem(144px));
+    margin: 0;
+    font-size: clamp(rem(44px), 12vw, rem(144px));
     line-height: 0.9;
   }
 
@@ -27,150 +25,116 @@
     color: $color-accent;
   }
 
-  &__subtitle {
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+  &__media {
+    aspect-ratio: 3 / 2;
   }
 
-  &__date {
+  &__typed {
+    // Reserva tres líneas para que los botones no salten al escribirse y borrarse el texto
+    min-height: 3lh;
+    margin-block-end: rem(24px);
     font-family: $font-serif;
-    font-size: rem(28px);
+    font-size: clamp(rem(24px), 3vw, rem(40px));
+  }
+
+  &__typed-text {
     color: $color-accent;
   }
 
   &__links {
+    // Contenedor: los botones se adaptan al espacio que les deja el póster
+    container-type: inline-size;
     display: flex;
     flex-wrap: wrap;
     gap: rem(16px);
-    justify-content: center;
+    margin: 0;
     padding: 0;
     list-style: none;
   }
+
+  // Si el espacio es estrecho, los botones se apilan a todo el ancho
+  @container (max-width: 26rem) {
+    &__links-item {
+      flex: 1 1 100%;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+
+  // :has() conecta dos zonas del póster: al pasar sobre un botón, o enfocarlo con teclado, se tiñe la foto
+  &:has(&__button:hover, &__button:focus-visible) &__media::after {
+    opacity: 1;
+  }
 }
 
-// Versión póster: solo en navegadores que soportan Grid (mejora progresiva).
+// Versión póster: foto a sangre con el título arriba y la frase y los botones abajo.
 @supports (display: grid) {
   .poster {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: rem(16px);
-    text-align: start;
-
     @include mq(md) {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: rem(24px);
-    }
+      display: grid;
+      // Fila 1: título. Fila 2: espacio flexible, donde se ve la foto. Fila 3: frase y botones
+      grid-template-rows: auto 1fr auto;
+      // Ocupa la pantalla visible (dvh, sin las barras del navegador) menos la cabecera
+      min-height: calc(100dvh - #{$header-height});
+      color: $white;
 
-    &__sun {
-      display: block;
-      grid-row: 1;
-      grid-column: 1 / 4;
-      align-self: start;
-      aspect-ratio: 1;
-      background-color: $color-highlight;
-      border-radius: 50%;
-
-      // Más pequeño y metido por detrás de la foto, para que se solapen
-      @include mq(md) {
-        grid-row: 1 / 3;
-        grid-column: 2 / 6;
-      }
-    }
-
-    &__image {
-      // Por encima del sol
-      z-index: 1;
-      grid-row: 1;
-      grid-column: 2 / -1;
-      align-self: end;
-      aspect-ratio: 3 / 2;
-      margin: 0;
-      object-fit: cover;
-
-      @include mq(md) {
-        grid-row: 1 / 4;
-        grid-column: 4 / -1;
-        aspect-ratio: 16 / 9;
+      // Foto y texto comparten la misma columna: el texto se monta sobre la foto
+      &__heading,
+      &__body,
+      &__media {
+        grid-column: 1;
       }
 
-      // En escritorio, más apaisada para que el póster quepa en la pantalla
-      @include mq(lg) {
-        aspect-ratio: 2 / 1;
-      }
-    }
-
-    &__title {
-      // Por encima de la foto, para que el recorte arena la tape
-      z-index: 2;
-      grid-row: 2;
-      grid-column: 1 / -1;
-      margin: 0;
-
-      @include mq(md) {
-        grid-row: 3 / 5;
-        grid-column: 1 / 9;
-        place-self: end start;
-
-        // El fondo solo ocupa lo que mide el texto, no toda el área de la retícula
-        padding: rem(16px) rem(24px) 0 0;
-        background-color: $color-bg;
-      }
-    }
-
-    &__subtitle,
-    &__date,
-    &__text,
-    &__links {
-      grid-column: 1 / -1;
-      margin: 0;
-    }
-
-    // En la versión Grid todo se alinea a la izquierda, también los botones
-    &__links {
-      justify-content: flex-start;
-    }
-
-    @include mq(md) {
-      &__subtitle,
-      &__date,
-      &__text {
-        grid-column: 1 / 7;
-      }
-    }
-
-    // Desde lg hay espacio a la derecha del título: el bloque de información
-    // sube a esas columnas y el póster cabe en la pantalla
-    @include mq(lg) {
-      &__subtitle,
-      &__date,
-      &__text,
-      &__links {
-        grid-column: 9 / -1;
+      &__heading,
+      &__body {
+        z-index: 1;
       }
 
-      &__subtitle {
-        grid-row: 4;
-        align-self: end;
+      &__heading {
+        grid-row: 1;
       }
 
-      &__date {
-        grid-row: 5;
+      &__body {
+        grid-row: 3;
       }
 
-      &__text {
-        grid-row: 6;
+      &__media {
+        grid-row: 1 / -1;
+        aspect-ratio: auto;
+
+        // Tinta arriba y abajo, transparente en el centro: el texto se lee y la foto queda despejada
+        &::before {
+          position: absolute;
+          inset: 0;
+          background-image: linear-gradient(
+            to bottom,
+            color-mix(in oklch, $color-text 85%, transparent),
+            transparent 40% 60%,
+            color-mix(in oklch, $color-text 85%, transparent)
+          );
+          content: "";
+          pointer-events: none;
+        }
       }
 
-      &__links {
-        grid-row: 7;
+      // Sobre la foto oscura, el acento pasa a crema (9,8:1); el magenta no se leería
+      &__title-line,
+      &__typed-text {
+        color: $color-highlight;
       }
 
-      // El título arranca arriba de su área para volver a solaparse con la parte baja de la foto
-      &__title {
-        grid-row: 3 / 8;
-        align-self: start;
+      // El botón secundario pasa a contorno blanco cambiando las variables CSS del propio botón de Bootstrap
+      &__button--light {
+        --bs-btn-color: #{$white};
+        --bs-btn-border-color: #{$white};
       }
     }
   }
+}
+
+// Cursor que genera Typed.js: la clase la crea la librería, por eso no sigue BEM
+.typed-cursor {
+  color: $color-accent;
 }

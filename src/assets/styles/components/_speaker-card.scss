@@ -9,27 +9,6 @@
     width: min(70%, rem(220px));
     aspect-ratio: 4 / 5;
     margin: rem(32px) auto 0;
-
-    // El sol de la portada, repetido detrás de cada retrato para dar unidad al sitio
-    &::before {
-      position: absolute;
-      inset-block-end: -6%;
-      inset-inline-end: -14%;
-      width: 60%;
-      aspect-ratio: 1;
-      content: "";
-      background-color: $color-highlight;
-      border-radius: 50%;
-    }
-  }
-
-  // Forma de arco: radio máximo arriba y esquinas rectas abajo
-  &__photo {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 999px 999px 0 0;
   }
 
   &__name {
@@ -55,5 +34,12 @@
       flex: 0 0 35%;
       margin: rem(24px);
     }
+  }
+
+  // El área de clic de stretched-link tapa la foto: el duotono se activa al pasar sobre
+  // la tarjeta o al enfocar su botón con el teclado
+  &:hover &__media::after,
+  &:focus-within &__media::after {
+    opacity: 1;
   }
 }

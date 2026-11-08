@@ -1,10 +1,19 @@
 @use "../tools" as *;
 
 .site-header {
-  border-block-end: rem(3px) solid $color-accent;
+  background-color: $color-accent;
+  // border-image pinta el borde con el degradado de marca
+  border-block-end: rem(4px) solid;
+  border-image: $gradient-brand 1;
 
-  // Bootstrap no tiene variable para la fuente del logo, así que se aplica con una clase propia
   &__logo {
     font-family: $font-serif;
+  }
+
+  // La página activa y el hover se marcan con subrayado y no con color:
+  // el crema sobre magenta solo llega a 4,3:1, por debajo de AA
+  :is(a:hover, [aria-current="page"]) {
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
   }
 }

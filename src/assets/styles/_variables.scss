@@ -1,17 +1,25 @@
 // Variables globales (capa Settings).
 
-// Paleta base: valores de color. Solo aquí se permiten hexadecimales (override de Stylelint).
-$blue-deep: #1f3a5f;
-$terracotta: #b04a22;
-$ochre: #e9b44c;
-$sand: #fbf6ee;
+// Paleta base: tomada del logo de mi trabajo sobre escritoras en Wikipedia.
+// Solo aquí se permiten hexadecimales (override de Stylelint).
+$ink: #2b2d5c;
+$indigo: #404381;
+$petrol: #156485;
+$magenta: #f1439c;
+$magenta-dark: #c2187a;
+$cream: #f6e093;
+$paper: #fffaf3;
 $white: #fff;
 
-// Paleta por función: los componentes usan estos nombres, así el tema se cambia en un solo bloque.
-$color-text: $blue-deep;
-$color-bg: $sand;
-$color-accent: $terracotta;
-$color-highlight: $ochre;
+// Paleta por función
+$color-text: $ink;
+$color-bg: $paper;
+$color-accent: $magenta-dark;
+$color-highlight: $cream;
+$color-secondary: $petrol;
+
+// Degradado de marca: interpolado en oklch para que los tonos intermedios no se apaguen
+$gradient-brand: linear-gradient(in oklch 90deg, $cream, $magenta, $indigo, $petrol);
 
 // Tipografías
 $font-serif: "DM Serif Display", "Georgia", serif;
@@ -25,7 +33,7 @@ $breakpoints: (
 
 // Personalización de Bootstrap: sobrescriben sus valores !default.
 $primary: $color-accent;
-$secondary: $color-text;
+$secondary: $color-secondary;
 $body-bg: $color-bg;
 $body-color: $color-text;
 $font-family-base: $font-sans;
@@ -34,13 +42,20 @@ $headings-font-family: $font-serif;
 // DM Serif Display solo tiene peso 400; con el 500 de Bootstrap el navegador simularía una negrita.
 $headings-font-weight: 400;
 
-// Navbar: color pleno en lugar del 65 % de opacidad por defecto, que bajaba el contraste del menú.
-$navbar-light-color: $color-text;
-$navbar-light-hover-color: $color-accent;
-$navbar-light-active-color: $color-accent;
-$navbar-light-icon-color: $color-text;
+// Navbar oscuro sobre fondo magenta: texto blanco pleno (5,7:1) en lugar del 55 % de opacidad por defecto
+$navbar-dark-color: $white;
+$navbar-dark-hover-color: $white;
+$navbar-dark-active-color: $white;
+$navbar-dark-icon-color: $white;
 $navbar-brand-font-size: 1.5rem;
 $nav-link-font-weight: 700;
+
+// Margen lateral de los contenedores: lo usan .container-fluid y el póster, para que todo quede alineado
+$container-padding-x: 1.5rem;
+
+
+// Alto aproximado de la cabecera: el póster ocupa la pantalla visible menos este valor
+$header-height: 4.5rem;
 
 // Card: sin borde ni fondo propio, el retrato en arco hace de elemento visual de la tarjeta
 $card-border-width: 0;

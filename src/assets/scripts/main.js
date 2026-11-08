@@ -16,14 +16,14 @@ if (speakerModal) {
   });
 }
 
-// Efecto máquina de escribir en la página del programa. Si el usuario ha pedido reducir
+// Efecto máquina de escribir. Si el usuario ha pedido reducir
 // el movimiento, no se anima y se queda el texto fijo del HTML
 const typedElement = document.getElementById('typed');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (typedElement && !reduceMotion) {
   new Typed(typedElement, {
-    strings: ['escribir poesía', 'contar historias', 'leer al sol'],
+    strings: ['las que firmaron como hombres', 'las Sinsombrero', 'las que faltan en los libros'],
     typeSpeed: 60,
     backSpeed: 30,
     backDelay: 1500,

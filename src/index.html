@@ -9,43 +9,60 @@
   </head>
   <body>
     <include src="./views/header.html" locals='{"page": "home"}'></include>
-    <main id="main" class="container">
+    <main id="main">
       <section class="poster" aria-labelledby="poster-title">
-        <div class="poster__sun" aria-hidden="true"></div>
-        <img
-          class="poster__image"
-          src="./assets/images/portada.jpg?width=1200"
-          srcset="
-            ./assets/images/portada.jpg?width=600   600w,
-            ./assets/images/portada.jpg?width=1200 1200w
-          "
-          sizes="(min-width: 768px) 65vw, 100vw"
-          alt="[describe la foto que elijas]"
-        />
-        <h1 class="poster__title" id="poster-title">
-          Páginas <span class="poster__title-line">al Sol</span>
-        </h1>
-        <p class="poster__subtitle">Jornadas y concurso literario</p>
-        <p class="poster__date">
-          <time datetime="2027-06-18">18</time> al
-          <time datetime="2027-06-20">20 de junio de 2027</time>
-        </p>
-        <p class="poster__text">
-          Charlas con autores, talleres de escritura y un concurso abierto a
-          todas las edades.
-        </p>
-        <ul class="poster__links" role="list">
-          <li>
-            <a class="btn btn-primary btn-lg" href="./programa.html"
-              >Ver programa</a
+        <div class="poster__heading">
+          <p class="poster__kicker">
+            Jornadas y concurso literario ·
+            <time datetime="2027-06-18">18</time> al
+            <time datetime="2027-06-20">20 de junio de 2027</time>
+          </p>
+          <h1 class="poster__title" id="poster-title">
+            Literatura <span class="poster__title-line">en femenino</span>
+          </h1>
+        </div>
+        <div class="poster__media frame">
+          <img
+            class="frame__image"
+            src="./assets/images/portada.jpg?width=1600"
+            srcset="
+              ./assets/images/portada.jpg?width=800   800w,
+              ./assets/images/portada.jpg?width=1600 1600w
+            "
+            sizes="100vw"
+            alt="[describe la foto]"
+          />
+        </div>
+        <div class="poster__body">
+          <p class="poster__typed">
+            <span class="visually-hidden"
+              >Tres días para recordar a las escritoras que firmaron como
+              hombres, a las Sinsombrero y a las que faltan en los libros.</span
             >
-          </li>
-          <li>
-            <a class="btn btn-outline-secondary btn-lg" href="./ponentes.html"
-              >Conoce a los ponentes</a
+            <span aria-hidden="true"
+              >Tres días para recordar a
+              <span class="poster__typed-text" id="typed"
+                >las que faltan en los libros</span
+              ></span
             >
-          </li>
-        </ul>
+          </p>
+          <ul class="poster__links" role="list">
+            <li class="poster__links-item">
+              <a
+                class="btn btn-primary btn-lg poster__button"
+                href="./programa.html"
+                >Ver programa</a
+              >
+            </li>
+            <li class="poster__links-item">
+              <a
+                class="btn btn-outline-secondary btn-lg poster__button poster__button--light"
+                href="./ponentes.html"
+                >Conoce a las ponentes</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
     <include src="./views/footer.html"></include>

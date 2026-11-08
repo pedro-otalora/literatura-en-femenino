@@ -1,8 +1,8 @@
 <li class="speaker-grid__item">
   <article class="card speaker-card">
-    <div class="speaker-card__media">
+    <div class="speaker-card__media frame">
       <img
-        class="speaker-card__photo"
+        class="frame__image"
         src="./assets/images/{{ photo }}?width=480"
         alt=""
         width="480"
@@ -14,12 +14,7 @@
       <h2 class="card-title speaker-card__name">{{ name }}</h2>
       <p class="speaker-card__role">{{ role }}</p>
       <p class="card-text">{{ summary }}</p>
-      <button
-        type="button"
-        class="btn btn-outline-primary btn-sm"
-        data-bs-toggle="modal"
-        data-bs-target="#speaker-modal"
-      >
+      <button type="button" class="btn btn-outline-primary btn-sm stretched-link" data-bs-toggle="modal" data-bs-target="#speaker-modal">
         Leer biografía<span class="visually-hidden"> de {{ name }}</span>
       </button>
       <template class="speaker-card__bio">

@@ -4,7 +4,7 @@
   // Contenedor: las sedes pasan de una columna a tres según el ancho de la sección
   container-type: inline-size;
 
-  --venues-accent: oklch(55% 0.15 40deg);
+  --venues-accent: oklch(55% 0.2 350deg);
 
   &__title {
     // cqi: el tamaño depende del ancho del contenedor, no de la pantalla

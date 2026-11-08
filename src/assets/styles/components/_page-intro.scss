@@ -13,20 +13,4 @@
     margin-inline: auto;
     font-size: rem(20px);
   }
-
-  &__typed {
-    // Reserva dos líneas para que el texto no empuje el contenido al escribirse y borrarse
-    min-height: 2lh;
-    font-family: $font-serif;
-    font-size: clamp(rem(24px), 4vw, rem(36px));
-  }
-
-  &__typed-text {
-    color: $color-accent;
-  }
-}
-
-// Cursor que genera Typed.js: la clase la crea la librería, por eso no sigue BEM
-.typed-cursor {
-  color: $color-accent;
 }
