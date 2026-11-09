@@ -17,7 +17,7 @@
     display: grid;
     gap: rem(32px);
 
-    @container (min-width: 36rem) {
+    @container (width >= 36rem) {
       grid-template-columns: 2fr 3fr;
     }
   }
@@ -91,8 +91,7 @@
 
   &__figure {
     max-width: rem(1100px);
-    padding-inline: rem(16px);
-    margin: rem(48px) auto;
+    margin-block: rem(48px);
   }
 
   &__figure-image {

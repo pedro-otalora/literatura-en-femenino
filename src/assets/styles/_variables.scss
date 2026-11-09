@@ -62,11 +62,10 @@ $container-max-widths: (
   xxl: 1320px
 );
 
-
 // Alto aproximado de la cabecera: el póster ocupa la pantalla visible menos este valor
 $header-height: 4.5rem;
 
-// Card: sin borde ni fondo propio, el retrato en arco hace de elemento visual de la tarjeta
+// Card: sin borde ni fondo propio; el elemento visual de la tarjeta es el retrato.
 $card-border-width: 0;
 $card-bg: transparent;
 

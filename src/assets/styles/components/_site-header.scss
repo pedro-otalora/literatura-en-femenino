@@ -15,7 +15,7 @@
     margin-inline-end: 0.3em;
   }
 
-    // Enlaces del menú: se identifican por su atributo aria-current (page o false),
+  // Enlaces del menú: se identifican por su atributo aria-current (page o false),
   // así no hay que sobrescribir las clases de Bootstrap. El logo no lo lleva y no se ve afectado.
   [aria-current] {
     padding-inline: rem(12px);

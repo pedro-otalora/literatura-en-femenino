@@ -10,7 +10,7 @@
     @error "Breakpoint `#{$bp}` no existe en $breakpoints.";
   }
 
-  @media (min-width: map.get($breakpoints, $bp)) {
+  @media (width >= map.get($breakpoints, $bp)) {
     @content;
   }
 }

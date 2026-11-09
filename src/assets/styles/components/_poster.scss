@@ -43,6 +43,7 @@
     margin: 0;
     font-size: clamp(rem(40px), 10vw, rem(120px));
     line-height: 0.9;
+    
     // Sombra difusa del azul del fondo: separa el título de la foto donde la pisa
     text-shadow: 0 rem(4px) rem(24px) color-mix(in oklch, $color-text 70%, transparent);
   }
@@ -78,7 +79,7 @@
   }
 
   // Si el espacio es estrecho (móvil o la columna izquierda en escritorio), los botones se apilan
-  @container (max-width: 26rem) {
+  @container (width <= 26rem) {
     &__links-item {
       flex: 1 1 100%;
     }

@@ -4,9 +4,6 @@
 // Generic: Bootstrap (incluye Reboot)
 @use "dependencies";
 
-// Elements
-@use "elements";
-
 // Objects: carpeta layouts/ del boilerplate, un parcial por página
 @use "layouts/ponentes";
 @use "layouts/articulo";
@@ -14,6 +11,3 @@
 
 // Components: bloques BEM
 @use "components";
-
-// Utilities
-@use "utilities";

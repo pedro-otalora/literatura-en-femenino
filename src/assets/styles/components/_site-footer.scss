@@ -86,19 +86,8 @@
     list-style: none;
   }
 
-  &__social-link {
+  &__link--icon {
     font-size: rem(24px);
-    color: $color-bg;
-
-    &:hover,
-    &:focus-visible {
-      color: $color-highlight;
-    }
-  }
-
-  &__bottom {
-    // …lo que ya tiene…
-    margin-block-end: rem(24px);
   }
 
   &__note {

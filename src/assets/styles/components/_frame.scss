@@ -1,7 +1,8 @@
 @use "../tools" as *;
 
-// Foto con duotono de marca: el degradado tiñe la imagen y desaparece al pasar el ratón.
-// Se reutiliza en el póster y en las ponentes.
+// Foto con duotono de marca: un degradado tiñe la imagen. 
+// Cada bloque decide cuándo se ve (al pasar por la tarjeta en ponentes, 
+// revelado al cargar en el póster).
 .frame {
   position: relative;
   overflow: hidden;
@@ -15,7 +16,7 @@
     background-image: $gradient-brand;
     mix-blend-mode: color;
 
-    // La foto se ve con su color original; el degradado aparece al pasar el ratón
+    // Oculto por defecto: la foto se ve en su blanco y negro original
     opacity: 0;
     transition: opacity 0.4s ease;
   }

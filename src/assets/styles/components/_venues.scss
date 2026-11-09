@@ -4,8 +4,6 @@
   // Contenedor: las sedes pasan de una columna a tres según el ancho de la sección
   container-type: inline-size;
 
-  --venues-accent: oklch(55% 0.2 350deg);
-
   &__title {
     // cqi: el tamaño depende del ancho del contenedor, no de la pantalla
     font-size: clamp(rem(28px), 5cqi, rem(44px));
@@ -18,14 +16,14 @@
     margin: 0;
     list-style: none;
 
-    @container (min-width: 48rem) {
+    @container (width >= 48rem) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &__item {
     padding-block: 0.5lh;
-    border-block-start: rem(4px) solid var(--venues-accent);
+    border-block-start: rem(4px) solid oklch(55% 0.2 350deg);
   }
 
   &__name {

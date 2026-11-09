@@ -5,7 +5,6 @@
   text-align: center;
 
   &__media {
-    position: relative;
     width: min(70%, rem(220px));
     aspect-ratio: 4 / 5;
     margin: rem(32px) auto 0;
@@ -28,8 +27,9 @@
     letter-spacing: 0.08em;
   }
 
-  // Tarjeta ancha (una columna en tablet vertical): retrato a la izquierda y texto a la derecha
-  @container (min-width: 30rem) {
+  // Tarjeta ancha (una sola columna con espacio, como un móvil en horizontal)
+  // retrato a la izquierda y texto a la derecha
+  @container (width >= 30rem) {
     flex-direction: row;
     align-items: center;
     text-align: start;
