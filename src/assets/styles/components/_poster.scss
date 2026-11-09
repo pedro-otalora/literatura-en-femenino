@@ -41,8 +41,10 @@
 
   &__title {
     margin: 0;
-    font-size: clamp(rem(44px), 12vw, rem(144px));
+    font-size: clamp(rem(40px), 10vw, rem(120px));
     line-height: 0.9;
+    // Sombra difusa del azul del fondo: separa el título de la foto donde la pisa
+    text-shadow: 0 rem(4px) rem(24px) color-mix(in oklch, $color-text 70%, transparent);
   }
 
   // Sobre el azul, el acento es crema (9,8:1); el magenta no se leería
@@ -92,9 +94,23 @@
     --bs-btn-border-color: #{$white};
   }
 
-  // :has() conecta dos zonas del póster: al pasar sobre un botón, o enfocarlo con teclado, se tiñe la foto
-  &:has(&__button:hover, &__button:focus-visible) &__media::after {
-    opacity: 1;
+  // Revelado: la foto aparece teñida y se funde a su blanco y negro original.
+  // El degradado empieza con el azul del fondo para que la foto se funda con él por la izquierda.
+  &__media::after {
+    background-image: linear-gradient(
+      in oklch 90deg,
+      $color-text,
+      $magenta,
+      $indigo,
+      $petrol
+    );
+    animation: poster-reveal 2.5s ease-out 0.5s both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__media::after {
+      animation: none;
+    }
   }
 }
 
@@ -159,4 +175,14 @@
 // Cursor que genera Typed.js: la clase la crea la librería, por eso no sigue BEM
 .typed-cursor {
   color: $color-highlight;
+}
+
+@keyframes poster-reveal {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }

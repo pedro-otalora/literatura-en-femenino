@@ -63,10 +63,10 @@
     }
   }
 
-  // Mismo tamaño que el logo de la cabecera: si cambia la variable, cambian los dos
+  // Algo menor que en la cabecera: en el pie el logo cierra la página, no la encabeza
   &__logo {
     font-family: $font-serif;
-    font-size: $navbar-brand-font-size;
+    font-size: rem(18px);
     color: $color-bg;
     text-decoration: none;
   }
