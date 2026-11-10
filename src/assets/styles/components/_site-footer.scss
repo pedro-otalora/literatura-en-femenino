@@ -49,7 +49,7 @@
     margin-block-end: rem(24px);
 
     // línea sutil sin color nuevo: mezcla el texto con el fondo del pie
-    border-block-start: 1px solid color-mix(in srgb, $color-bg 30%, $color-text);
+    border-block-start: 1px solid color-mix(in oklch, $color-bg 30%, $color-text);
 
     @include mq(md) {
       display: grid;

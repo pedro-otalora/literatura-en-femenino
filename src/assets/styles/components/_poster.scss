@@ -43,9 +43,10 @@
     margin: 0;
     font-size: clamp(rem(40px), 10vw, rem(120px));
     line-height: 0.9;
-    
+
     // Sombra difusa del azul del fondo: separa el título de la foto donde la pisa
-    text-shadow: 0 rem(4px) rem(24px) color-mix(in oklch, $color-text 70%, transparent);
+    text-shadow: 0 rem(4px) rem(24px)
+      color-mix(in oklch, $color-text 70%, transparent);
   }
 
   // Sobre el azul, el acento es crema (9,8:1); el magenta no se leería
@@ -158,10 +159,6 @@
 
         // Funde el borde izquierdo de la foto con el azul y da contraste al título que la pisa
         &::before {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          content: "";
           background-image: linear-gradient(
             to right,
             $color-text,

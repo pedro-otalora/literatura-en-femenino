@@ -1,6 +1,6 @@
 // Scripts del sitio.
 
-// Bootstrap JS: necesario para los componentes interactivos (menú colapsable, modal, accordion).
+// Bootstrap JS: menú colapsable, modal y accordion. Sintaxis del módulo 4.1
 import * as bootstrap from 'bootstrap';
 
 import Typed from 'typed.js';
@@ -27,6 +27,6 @@ if (typedElement && !reduceMotion) {
     typeSpeed: 60,
     backSpeed: 30,
     backDelay: 1500,
-    loop: true,
+    loop: false,
   });
 }
