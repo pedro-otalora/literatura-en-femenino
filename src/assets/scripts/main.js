@@ -23,7 +23,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 if (typedElement && !reduceMotion) {
   new Typed(typedElement, {
-    strings: ['las que firmaron como hombres', 'las Sinsombrero', 'las que faltan en los libros'],
+        strings: ['las reinas del misterio', 'las que firmaron como hombres', 'las escritoras que te faltan por leer'],
     typeSpeed: 60,
     backSpeed: 30,
     backDelay: 1500,
