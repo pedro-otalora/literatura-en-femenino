@@ -14,9 +14,16 @@
       <h2 class="card-title speaker-card__name">{{ name }}</h2>
       <p class="speaker-card__role">{{ role }}</p>
       <p class="card-text">{{ summary }}</p>
-      <button type="button" class="btn btn-outline-primary btn-sm stretched-link" data-bs-toggle="modal" data-bs-target="#speaker-modal">
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-sm stretched-link"
+        data-bs-toggle="modal"
+        data-bs-target="#speaker-modal"
+      >
         Leer biografía<span class="visually-hidden"> de {{ name }}</span>
       </button>
+      <!-- template no se muestra ni lo anuncian los lectores de pantalla: 
+       main.js copia la biografía a la modal al abrirla -->
       <template class="speaker-card__bio">
         <p>{{ bio }}</p>
       </template>
