@@ -80,8 +80,8 @@
     }
   }
 
-  // Con :where() la especificidad no aumenta, así que esta clase sobrescribe
-  // los estilos de h3 del artículo sin necesidad de selectores más largos
+  // Los h3 del artículo tienen estilos por defecto en la capa defaults; 
+  // esta clase, sin capa, los sobrescribe sin selectores más largos
   &__step-title {
     font-family: $font-sans;
     font-size: rem(18px);

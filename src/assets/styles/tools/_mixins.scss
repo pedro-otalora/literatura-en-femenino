@@ -1,9 +1,8 @@
 @use "sass:map";
 @use "../variables" as *;
-@use "functions" as *;
 
 // Media queries mobile first: los estilos sin mq() son los de móvil y cada
-// punto de corte solo añade cambios (min-width)
+// punto de corte solo añade cambios (width >=)
 @mixin mq($bp) {
   // si la mq está mal escrita se detiene la compilación, para que no se quede sin aplicar
   @if not map.has-key($breakpoints, $bp) {

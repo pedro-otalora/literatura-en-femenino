@@ -48,8 +48,9 @@
     padding-block-start: rem(24px);
     margin-block-end: rem(24px);
 
-    // línea sutil sin color nuevo: mezcla el texto con el fondo del pie
-    border-block-start: 1px solid color-mix(in oklch, $color-bg 30%, $color-text);
+    // Línea sutil: el color del texto semitransparente deja ver el fondo del pie
+    border-block-start: 1px solid
+      color-mix(in oklch, $color-bg 25%, transparent);
 
     @include mq(md) {
       display: grid;

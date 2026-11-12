@@ -1,11 +1,11 @@
 // Scripts del sitio.
 
 // Bootstrap JS: menú colapsable, modal y accordion. La variable bootstrap abre la modal del formulario
-import * as bootstrap from 'bootstrap';
+import * as bootstrap from "bootstrap";
 
 import Typed from "typed.js";
 
-// Rellena la modal con la biografía de la tarjeta que la abre: así basta una modal para todos los ponentes
+// Rellena la modal con la biografía de la tarjeta que la abre: así basta una modal para todas las ponentes
 const speakerModal = document.getElementById("speaker-modal");
 
 if (speakerModal) {

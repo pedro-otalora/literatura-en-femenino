@@ -27,7 +27,7 @@
     letter-spacing: 0.08em;
   }
 
-  // Tarjeta ancha (una sola columna con espacio, como un móvil en horizontal)
+  // Tarjeta ancha (una sola columna con espacio, como un móvil en horizontal):
   // retrato a la izquierda y texto a la derecha
   @container (width >= 30rem) {
     flex-direction: row;
