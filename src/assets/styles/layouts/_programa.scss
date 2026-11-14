@@ -17,16 +17,3 @@
 .signup {
   max-width: 40rem;
 }
-
-// Un color de la paleta por sede: la identifica en su tarjeta y en el programa
-[data-venue="plaza"] {
-  --venue-color: #{$color-accent};
-}
-
-[data-venue="biblioteca"] {
-  --venue-color: #{$color-secondary};
-}
-
-[data-venue="jardin"] {
-  --venue-color: #{$indigo};
-}

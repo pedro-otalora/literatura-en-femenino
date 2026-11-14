@@ -1,7 +1,6 @@
 @use "../tools" as *;
 
 .article {
-  padding-block-end: rem(64px);
 
   &__body {
     // Columna de lectura más estrecha que .container: este max-width gana

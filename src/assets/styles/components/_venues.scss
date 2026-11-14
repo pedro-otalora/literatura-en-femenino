@@ -49,3 +49,17 @@
     line-height: 1.2;
   }
 }
+
+// Un color de la paleta por sede: lo usan sus tarjetas, en programa y artículo,
+// y las etiquetas del programa
+[data-venue="plaza"] {
+  --venue-color: #{$color-accent};
+}
+
+[data-venue="biblioteca"] {
+  --venue-color: #{$color-secondary};
+}
+
+[data-venue="jardin"] {
+  --venue-color: #{$indigo};
+}
