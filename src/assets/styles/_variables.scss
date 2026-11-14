@@ -1,6 +1,6 @@
 // Variables globales (capa Settings).
 
-// Paleta base: tomada del logo de mi trabajo sobre escritoras en Wikipedia.
+// Paleta base
 // Solo aquí se permiten hexadecimales (override de Stylelint).
 $ink: #2b2d5c;
 $indigo: #404381;
@@ -19,7 +19,7 @@ $color-accent: $magenta-dark;
 $color-highlight: $cream;
 $color-secondary: $petrol;
 
-// Degradado de marca: interpolado en oklch para que los tonos intermedios no se apaguen
+// Degradado en oklch para que los tonos intermedios no se apaguen
 $gradient-brand: linear-gradient(in oklch 90deg, $cream, $magenta, $indigo, $petrol);
 
 // Tipografías
@@ -46,7 +46,6 @@ $headings-font-weight: 400;
 // Navbar oscuro sobre fondo magenta: texto blanco pleno (5,7:1) en lugar del 55 % de opacidad por defecto
 $navbar-dark-color: $white;
 $navbar-dark-hover-color: $white;
-$navbar-dark-active-color: $white;
 $navbar-dark-icon-color: $white;
 $navbar-brand-font-size: 1.3rem;
 $nav-link-font-weight: 700;
@@ -61,9 +60,6 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px
 );
-
-// Alto aproximado de la cabecera: el póster ocupa la pantalla visible menos este valor
-$header-height: 4.5rem;
 
 // Card: sin borde ni fondo propio; el elemento visual de la tarjeta es el retrato.
 $card-border-width: 0;

@@ -13,7 +13,8 @@
     grid-template-columns: auto 1fr;
     gap: 0 rem(16px);
     padding-block: 0.5lh;
-    border-block-end: 1px solid color-mix(in oklch, $color-text 15%, transparent);
+    border-block-end: 1px solid
+      color-mix(in oklch, $color-text 15%, transparent);
   }
 
   &__time {
@@ -27,8 +28,24 @@
     border-radius: rem(4px);
   }
 
+  // Etiqueta con el icono y el color de la sede: enlaza cada actividad con su tarjeta en «Dónde»
   &__place {
+    display: inline-flex;
+    gap: 0.4em;
+    align-items: center;
+
+    // Es un elemento de la retícula: sin esto se estiraría a todo el ancho de la columna
+    justify-self: start;
+    padding: rem(2px) rem(12px);
+    margin-block-start: rem(4px);
     font-size: rem(14px);
-    color: oklch(45% 0.05 250deg);
+
+    // Variante clara del color de la sede, como el cuadro de su tarjeta
+    background-color: color-mix(in oklch, var(--venue-color) 15%, $color-bg);
+    border-radius: 50rem;
+  }
+
+  &__icon {
+    color: var(--venue-color);
   }
 }

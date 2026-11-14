@@ -2,7 +2,7 @@
 
 $speaker-gap: rem(32px);
 
-// Retícula con flex (el enunciado no permite .row ni .col-*)
+// Retícula con flex
 .speaker-grid {
   display: flex;
   flex-wrap: wrap;

@@ -6,6 +6,7 @@
   display: grid;
   min-height: rem(360px);
   margin-block-end: rem(48px);
+  color: $color-bg;
 
   &__image,
   &__content {
@@ -27,16 +28,16 @@
     padding-block: rem(48px);
   }
 
-  // :has(): solo si la cabecera tiene foto se oscurece la imagen y el texto pasa a claro.
-  // Sin foto, la cabecera queda con el fondo de la página y el texto oscuro.
-  &:has(&__image) {
-    color: $color-bg;
+  // Capa degradada sobre la foto para que el texto claro se lea bien
 
-    &::after {
-      grid-area: 1 / 1;
-      content: "";
-      background-image: linear-gradient(to top, $color-text 15%, color-mix(in oklch, $color-text 30%, transparent));
-    }
+  &::after {
+    grid-area: 1 / 1;
+    content: "";
+    background-image: linear-gradient(
+      to top,
+      $color-text 15%,
+      color-mix(in oklch, $color-text 30%, transparent)
+    );
   }
 
   &__kicker {
@@ -49,6 +50,8 @@
   &__title {
     max-width: 24ch;
     margin-block-end: rem(16px);
+
+    // Tamaño fluido entre 40 y 80 px según el ancho de la ventana, como el título del póster
     font-size: clamp(rem(40px), 7vw, rem(80px));
     line-height: 1;
 

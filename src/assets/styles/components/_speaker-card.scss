@@ -40,10 +40,11 @@
     }
   }
 
-  // El área de clic de stretched-link tapa la foto: el duotono se activa al pasar sobre
-  // la tarjeta o al enfocar su botón con el teclado
-  &:hover &__media::after,
-  &:focus-within &__media::after {
-    opacity: 1;
+  // El área de clic de stretched-link tapa la foto: el degradado se activa al pasar el ratón
+  // por la tarjeta. (hover: hover) evita que en pantallas táctiles el hover se quede pegado tras tocar
+  @media (hover: hover) {
+    &:hover &__media::after {
+      opacity: 1;
+    }
   }
 }

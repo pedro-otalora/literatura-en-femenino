@@ -1,5 +1,6 @@
 // Punto de entrada de Components: reenvía los bloques BEM para cargarlos con un solo @use.
 @forward "article";
+
 // frame va antes que poster y speaker-card: 
 // esos bloques cambian su degradado y su visibilidad, y con la misma especificidad gana el que se carga después
 @forward "frame";

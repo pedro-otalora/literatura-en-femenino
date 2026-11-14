@@ -4,11 +4,6 @@
   // Contenedor: las sedes pasan de una columna a tres según el ancho de la sección
   container-type: inline-size;
 
-  &__title {
-    // cqi: el tamaño depende del ancho del contenedor, no de la pantalla
-    font-size: clamp(rem(28px), 5cqi, rem(44px));
-  }
-
   &__list {
     display: grid;
     gap: rem(24px);
@@ -22,14 +17,35 @@
   }
 
   &__item {
-    padding-block: 0.5lh;
-    border-block-start: rem(4px) solid oklch(55% 0.2 350deg);
+    display: flex;
+    gap: rem(16px);
+    align-items: center;
+    padding: rem(16px) rem(20px);
+
+    // Contenedor: icono y nombre se miden con el ancho de cada sede, que cambia entre una y tres columnas
+    container-type: inline-size;
+
+    // Variante clara del color de la sede: se calcula, no se define un fondo para cada una
+    background-color: color-mix(in oklch, var(--venue-color) 15%, $color-bg);
+    border-radius: rem(12px);
+  }
+
+  // Escala con la tarjeta (cqi), con topes para que no se pierda en las estrechas
+  // ni domine en las anchas de una columna
+  &__icon {
+    flex-shrink: 0;
+    font-size: clamp(rem(32px), 14cqi, rem(48px));
+    line-height: 1;
+    color: var(--venue-color);
   }
 
   &__name {
     display: block;
     font-family: $font-serif;
-    font-size: rem(22px);
+
+    // Como el título de una card: crece con la tarjeta, y el 1rem lo mantiene sensible al zoom del navegador
+    font-size: clamp(rem(18px), 1rem + 2cqi, rem(24px));
     font-weight: 400;
+    line-height: 1.2;
   }
 }

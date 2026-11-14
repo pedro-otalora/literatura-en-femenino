@@ -1,5 +1,8 @@
 @use "../tools" as *;
 
+// Alto aproximado de la cabecera: el póster ocupa la pantalla visible menos este valor
+$header-height: 4.5rem;
+
 // Móvil y versión alternativa sin Grid: antetítulo y título, foto, frase y botones apilados.
 // Fondo azul en todos los tamaños; en escritorio es el cuarto izquierdo, que la foto no cubre.
 .poster {

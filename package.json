@@ -1,5 +1,5 @@
 {
-  "name": "pec2-jornadas-literarias",
+  "name": "literatura-en-femenino",
   "version": "1.0.0",
   "private": true,
   "description": "PEC2 Herramientas HTML y CSS II (UOC): web de unas jornadas literarias con Bootstrap",
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedro-otalora/pec2-jornadas-literarias.git"
+    "url": "git+https://github.com/pedro-otalora/literatura-en-femenino.git"
   },
   "author": {
     "name": "Pedro Otálora Giménez",

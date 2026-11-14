@@ -66,7 +66,11 @@
                       ><span
                         >Inauguración y charla «Firmar con nombre de hombre» ·
                         Lucía Ferrer</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="plaza"
+                        ><i
+                          class="bi bi-sun program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Plaza Emilia Pardo Bazán</span
                       >
                     </li>
@@ -76,7 +80,11 @@
                       ><span
                         >Charla «De Wollstonecraft a Campoamor» · Teresa
                         Valcárcel</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="plaza"
+                        ><i
+                          class="bi bi-sun program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Plaza Emilia Pardo Bazán</span
                       >
                     </li>
@@ -110,7 +118,11 @@
                       ><span
                         >Taller «Editatona: escritoras en Wikipedia» · Carmen
                         Ruiz</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="biblioteca"
+                        ><i
+                          class="bi bi-book program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Biblioteca Carmen Conde</span
                       >
                     </li>
@@ -120,7 +132,11 @@
                       ><span
                         >Taller familiar «Dibuja a tu escritora» · Elena
                         Navarro</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="jardin"
+                        ><i
+                          class="bi bi-tree program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Jardín de las Sinsombrero</span
                       >
                     </li>
@@ -130,7 +146,11 @@
                       ><span
                         >Charla «Asesinas, detectives y amantes» · Inés
                         Garrido</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="biblioteca"
+                        ><i
+                          class="bi bi-book program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Biblioteca Carmen Conde</span
                       >
                     </li>
@@ -164,7 +184,11 @@
                       ><span
                         >Charla «Escribir para cambiar el mundo» · Marta
                         Ibáñez</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="jardin"
+                        ><i
+                          class="bi bi-tree program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Jardín de las Sinsombrero</span
                       >
                     </li>
@@ -174,7 +198,11 @@
                       ><span
                         >Clausura y lectura de las cartas ganadoras del
                         concurso</span
-                      ><span class="program__place"
+                      ><span class="program__place" data-venue="jardin"
+                        ><i
+                          class="bi bi-tree program__icon"
+                          aria-hidden="true"
+                        ></i
                         >Jardín de las Sinsombrero</span
                       >
                     </li>
@@ -186,19 +214,28 @@
         </section>
 
         <section class="venues" aria-labelledby="venues-title">
-          <h2 class="venues__title" id="venues-title">Dónde</h2>
+          <h2 id="venues-title">Dónde</h2>
           <ul class="venues__list" role="list">
-            <li class="venues__item">
-              <strong class="venues__name">Plaza Emilia Pardo Bazán</strong>
-              Inauguración y charlas del viernes
+            <li class="venues__item" data-venue="plaza">
+              <i class="bi bi-sun venues__icon" aria-hidden="true"></i>
+              <div>
+                <strong class="venues__name">Plaza Emilia Pardo Bazán</strong>
+                Inauguración y charlas del viernes
+              </div>
             </li>
-            <li class="venues__item">
-              <strong class="venues__name">Biblioteca Carmen Conde</strong>
-              Editatona y charla del sábado
+            <li class="venues__item" data-venue="biblioteca">
+              <i class="bi bi-book venues__icon" aria-hidden="true"></i>
+              <div>
+                <strong class="venues__name">Biblioteca Carmen Conde</strong>
+                Editatona y charla del sábado
+              </div>
             </li>
-            <li class="venues__item">
-              <strong class="venues__name">Jardín de las Sinsombrero</strong>
-              Taller familiar, charla y clausura
+            <li class="venues__item" data-venue="jardin">
+              <i class="bi bi-tree venues__icon" aria-hidden="true"></i>
+              <div>
+                <strong class="venues__name">Jardín de las Sinsombrero</strong>
+                Taller familiar, charla y clausura
+              </div>
             </li>
           </ul>
         </section>

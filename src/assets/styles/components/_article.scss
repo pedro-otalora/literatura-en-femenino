@@ -63,6 +63,7 @@
     padding-inline-start: rem(56px);
     margin-block-end: rem(24px);
     counter-increment: step;
+    transition: opacity 0.2s ease;
 
     &::before {
       position: absolute;
@@ -77,16 +78,39 @@
       content: counter(step);
       border: rem(2px) solid $color-accent;
       border-radius: 50%;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
     }
   }
 
-  // Los h3 del artículo tienen estilos por defecto en la capa defaults; 
+  @media (prefers-reduced-motion: reduce) {
+    &__step,
+    &__step::before {
+      transition: none;
+    }
+  }
+
+  // Los h3 del artículo tienen estilos por defecto en la capa defaults;
   // esta clase, sin capa, los sobrescribe sin selectores más largos
   &__step-title {
     font-family: $font-sans;
     font-size: rem(18px);
     font-weight: 700;
     color: $color-text;
+  }
+
+  // :has(): al pasar el ratón por un paso, se resalta y los demás se atenúan para centrar la lectura.
+  // Solo con ratón, para que en pantallas táctiles no se quede pegado
+  @media (hover: hover) {
+    &__step:hover::before {
+      color: $white;
+      background-color: $color-accent;
+    }
+
+    &__steps:has(&__step:hover) &__step:not(:hover) {
+      opacity: 0.35;
+    }
   }
 
   &__figure {
@@ -99,18 +123,13 @@
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: rem(8px);
-  }
-
-  // :has(): si la foto lleva pie, se une a él y solo redondea las esquinas de arriba
-  &__figure:has(&__caption) &__figure-image {
-    border-radius: rem(8px) rem(8px) 0 0;
+    border-radius: rem(12px) rem(12px) 0 0;
   }
 
   &__caption {
     padding: rem(12px) rem(16px);
     color: $color-bg;
     background-color: $color-text;
-    border-radius: 0 0 rem(8px) rem(8px);
+    border-radius: 0 0 rem(12px) rem(12px);
   }
 }
