@@ -29,7 +29,6 @@
   }
 
   // Capa degradada sobre la foto para que el texto claro se lea bien
-
   &::after {
     grid-area: 1 / 1;
     content: "";

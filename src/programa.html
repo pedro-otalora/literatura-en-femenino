@@ -13,7 +13,7 @@
   </head>
   <body>
     <include src="./views/header.html" locals='{"page": "programa"}'></include>
-    <main id="main">
+    <main>
       <header class="page-hero">
         <img
           class="page-hero__image"
@@ -36,6 +36,33 @@
         </div>
       </header>
       <div class="container">
+        <section class="venues" aria-labelledby="venues-title">
+          <h2 id="venues-title">Dónde</h2>
+          <ul class="venues__list" role="list">
+            <li class="venues__item" data-venue="plaza">
+              <i class="bi bi-sun venues__icon" aria-hidden="true"></i>
+              <div>
+                <strong class="venues__name">Plaza Emilia Pardo Bazán</strong>
+                Inauguración y charlas del viernes
+              </div>
+            </li>
+            <li class="venues__item" data-venue="biblioteca">
+              <i class="bi bi-book venues__icon" aria-hidden="true"></i>
+              <div>
+                <strong class="venues__name">Biblioteca Carmen Conde</strong>
+                Editatona y charla del sábado
+              </div>
+            </li>
+            <li class="venues__item" data-venue="jardin">
+              <i class="bi bi-tree venues__icon" aria-hidden="true"></i>
+              <div>
+                <strong class="venues__name">Jardín de las Sinsombrero</strong>
+                Taller familiar, charla y clausura
+              </div>
+            </li>
+          </ul>
+        </section>
+
         <section class="program" aria-labelledby="program-title">
           <h2 id="program-title">Actividades</h2>
           <!-- data-bs-parent: al abrir un día se cierran los demás, para que el programa no se alargue -->
@@ -211,33 +238,6 @@
               </div>
             </div>
           </div>
-        </section>
-
-        <section class="venues" aria-labelledby="venues-title">
-          <h2 id="venues-title">Dónde</h2>
-          <ul class="venues__list" role="list">
-            <li class="venues__item" data-venue="plaza">
-              <i class="bi bi-sun venues__icon" aria-hidden="true"></i>
-              <div>
-                <strong class="venues__name">Plaza Emilia Pardo Bazán</strong>
-                Inauguración y charlas del viernes
-              </div>
-            </li>
-            <li class="venues__item" data-venue="biblioteca">
-              <i class="bi bi-book venues__icon" aria-hidden="true"></i>
-              <div>
-                <strong class="venues__name">Biblioteca Carmen Conde</strong>
-                Editatona y charla del sábado
-              </div>
-            </li>
-            <li class="venues__item" data-venue="jardin">
-              <i class="bi bi-tree venues__icon" aria-hidden="true"></i>
-              <div>
-                <strong class="venues__name">Jardín de las Sinsombrero</strong>
-                Taller familiar, charla y clausura
-              </div>
-            </li>
-          </ul>
         </section>
 
         <section class="signup" aria-labelledby="signup-title">
