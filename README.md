@@ -2,7 +2,7 @@
 
 Sitio web de unas jornadas y un concurso literario ficticios sobre la literatura escrita por mujeres. PEC2 de Herramientas HTML y CSS II del Máster en Desarrollo de Aplicaciones y Sitios Web de la UOC.
 
-- **Producción:** [pendiente]
+- **Producción:** https://literatura-en-femenino.netlify.app/
 - **Autor:** Pedro Otálora Giménez
 
 ## Tecnologías

@@ -9,10 +9,24 @@
 
   &__logo {
     font-family: $font-serif;
+
+    // Móvil: el logo se reduce con la pantalla para caber en una línea junto al botón del menú
+    font-size: clamp(1rem, 5vw, #{$navbar-brand-font-size});
   }
 
   &__icon {
     margin-inline-end: 0.3em;
+  }
+
+  // Menú desplegado en móvil: a la derecha y separado del botón,
+  // para que el anillo de foco no pise la página activa
+  &__nav {
+    align-items: flex-end;
+    margin-block-start: rem(16px);
+
+    @include mq(md) {
+      margin-block-start: 0;
+    }
   }
 
   // Enlaces del menú: se identifican por su atributo aria-current (page o false),
