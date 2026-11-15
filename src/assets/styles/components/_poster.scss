@@ -66,7 +66,7 @@ $header-height: 4.5rem;
     // Reserva tres líneas para que los botones no salten al escribirse y borrarse el texto
     min-height: 3lh;
     margin-block-end: rem(24px);
-    font-family: $font-serif;
+    font-family: $font-typewriter;
     font-size: clamp(rem(24px), 2vw, rem(32px));
   }
 

@@ -26,6 +26,9 @@ $gradient-brand: linear-gradient(in oklch 90deg, $cream, $magenta, $indigo, $pet
 $font-serif: "DM Serif Display", "Georgia", serif;
 $font-sans: "DM Sans", system-ui, sans-serif;
 
+// Máquina de escribir para la frase animada del póster
+$font-typewriter: "Special Elite", "Courier New", monospace;
+
 // Puntos de corte: los mismos valores que Bootstrap, para que mq() y sus utilidades coincidan.
 $breakpoints: (
   md: 768px,

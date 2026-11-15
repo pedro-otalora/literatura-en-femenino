@@ -1,7 +1,6 @@
 @use "../tools" as *;
 
 .article {
-
   &__body {
     // Columna de lectura más estrecha que .container: este max-width gana
     // al de Bootstrap porque Bootstrap va en la capa vendor
