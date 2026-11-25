@@ -33,8 +33,8 @@ if (typedElement && !reduceMotion) {
   new Typed(typedElement, {
     strings: [
       "las reinas del misterio",
-      "las que firmaron como hombres",
-      "las escritoras que te faltan por leer",
+      "las grandes escritoras",
+      "las que te faltan por leer",
     ],
     typeSpeed: 60,
     backSpeed: 30,
